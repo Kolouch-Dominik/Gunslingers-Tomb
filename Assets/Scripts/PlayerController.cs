@@ -12,6 +12,15 @@ public class PlayerController : MonoBehaviour
     public Transform gunArm;
     private Camera cam;
 
+    [field: SerializeField]
+    public GameObject BulletToFire { get; set; }
+    [field: SerializeField]
+    public Transform FirePoint { get; set; }
+    [field: SerializeField]
+    public float TimeBetweenShots { get; set; }
+    private float shotCounter;
+
+
     private Vector2 moveInput;
     // Start is called before the first frame update
     void Start()
@@ -31,12 +40,12 @@ public class PlayerController : MonoBehaviour
 
         var mousePosition = Input.mousePosition;    //pozice myši
         var screenPoint = cam.WorldToScreenPoint(transform.localPosition);  //pozice hráèe
-         
+
         //otáèení podle smìru pohledu postavy
         if (mousePosition.x < screenPoint.x)
         {
-            ScaleTransform(transform, new Vector3(-1f,1f,1f));
-            ScaleTransform(gunArm, new Vector3(-1f,-1f,1f));
+            ScaleTransform(transform, new Vector3(-1f, 1f, 1f));
+            ScaleTransform(gunArm, new Vector3(-1f, -1f, 1f));
         }
         else if (mousePosition.x > screenPoint.x)
         {
@@ -46,9 +55,29 @@ public class PlayerController : MonoBehaviour
 
         var offset = new Vector2(mousePosition.x - screenPoint.x, mousePosition.y - screenPoint.y);
 
-        var angle = Mathf.Atan2(offset.y, offset.x)* Mathf.Rad2Deg;
+        var angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
 
-        gunArm.rotation = Quaternion.Euler(0,0,angle);
+        gunArm.rotation = Quaternion.Euler(0, 0, angle);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Instantiate(BulletToFire, FirePoint.position,
+                FirePoint.rotation); //vytvoøení instance objektu (objekt, pozice, rotace)
+
+            shotCounter = TimeBetweenShots;
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            if ((shotCounter -= Time.deltaTime) <= 0)
+            {
+                Instantiate(BulletToFire, FirePoint.position, FirePoint.rotation);
+
+                shotCounter = TimeBetweenShots;
+            }
+        }
+
+
 
         Anim.SetBool("isMoving", moveInput != Vector2.zero);
     }
