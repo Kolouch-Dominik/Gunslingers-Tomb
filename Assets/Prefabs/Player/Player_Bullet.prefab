@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <BulletRB>k__BackingField: {fileID: 1812348699427440588}
+  <ImpactEffect>k__BackingField: {fileID: 8781111597144935778, guid: 928446a94198df3449098533971ac7a0, type: 3}
 --- !u!50 &1812348699427440588
 Rigidbody2D:
   serializedVersion: 4
