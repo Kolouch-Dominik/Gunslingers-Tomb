@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1812348699427440584}
   - component: {fileID: 1812348699427440588}
   - component: {fileID: 1812348699427440591}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BulletRB>k__BackingField: {fileID: 1812348699427440588}
   <ImpactEffect>k__BackingField: {fileID: 8781111597144935778, guid: 928446a94198df3449098533971ac7a0, type: 3}
+  <BulletDamage>k__BackingField: 50
 --- !u!50 &1812348699427440588
 Rigidbody2D:
   serializedVersion: 4

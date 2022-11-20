@@ -10,11 +10,14 @@ public class PlayerBullet : MonoBehaviour
     [field: SerializeField]
     public Rigidbody2D BulletRB { get; set; }
 
-    [field: SerializeField] 
+    [field: SerializeField]
     public GameObject ImpactEffect { get; set; }
+
+    [field: SerializeField]
+    public int BulletDamage { get; set; } = 50;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -26,7 +29,9 @@ public class PlayerBullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Instantiate(ImpactEffect, transform.position, transform.rotation);
-        Destroy(gameObject); 
+        Destroy(gameObject);
+        if(other.tag.Equals("Enemy"))
+            other.GetComponent<EnemyController>().DamageEnemy(BulletDamage);
     }
 
     private void OnBecameInvisible()

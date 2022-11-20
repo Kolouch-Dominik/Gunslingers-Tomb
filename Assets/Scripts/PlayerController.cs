@@ -1,9 +1,11 @@
 using System;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance { get; private set; }
     [field: SerializeField]
     public float MoveSpeed { get; private set; }
     [field: SerializeField]
@@ -22,7 +24,12 @@ public class PlayerController : MonoBehaviour
 
 
     private Vector2 moveInput;
-    // Start is called before the first frame update
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
         cam = Camera.main; //v updatu volat Camera.Main --> moc nároèná opera, staèí jednou pøi startu
