@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [field: SerializeField]
-    public Rigidbody2D Rigidbody2D { get; set; }
+    public Rigidbody2D EnemyBody { get; set; }
     [field: SerializeField]
     public float MoveSpeed { get; set; }
     [field: SerializeField]
@@ -44,7 +44,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Body.isVisible)
+        if (Body.isVisible && PlayerController.Instance.gameObject.activeInHierarchy)
         {
             if (GetDistance() < RangeToChase)
                 moveDirection = PlayerController.Instance.transform.position - transform.position;
@@ -52,7 +52,7 @@ public class EnemyController : MonoBehaviour
 
             moveDirection.Normalize();
 
-            Rigidbody2D.velocity = moveDirection * MoveSpeed;
+            EnemyBody.velocity = moveDirection * MoveSpeed;
 
 
             if (ShouldShoot && GetDistance() < ShootRange)
@@ -64,7 +64,7 @@ public class EnemyController : MonoBehaviour
                     Instantiate(Bullet, FirePoint.position, FirePoint.rotation);
                 }
             }
-        }
+        } else EnemyBody.velocity = Vector3.zero;
 
         Anim.SetBool("isMoving", moveDirection != Vector3.zero);
     }

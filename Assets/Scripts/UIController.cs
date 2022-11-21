@@ -10,7 +10,8 @@ public class UIController : MonoBehaviour
     public Slider HealthSlider { get; set; }
     [field: SerializeField]
     public Text HealthText { get; set; }
-    // Start is called before the first frame update
+    [field: SerializeField]
+    public GameObject DeathScreen { get; set; }
 
     private void Awake()
     {

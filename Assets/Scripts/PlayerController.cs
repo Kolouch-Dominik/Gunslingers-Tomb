@@ -21,7 +21,8 @@ public class PlayerController : MonoBehaviour
     [field: SerializeField]
     public float TimeBetweenShots { get; set; }
     private float shotCounter;
-
+    [field: SerializeField]
+    public SpriteRenderer Body { get; set; }
 
     private Vector2 moveInput;
 
