@@ -1225,6 +1225,10 @@ MonoBehaviour:
   <FirePoint>k__BackingField: {fileID: 581955308}
   <TimeBetweenShots>k__BackingField: 0.2
   <Body>k__BackingField: {fileID: 1413367926}
+  <DashSpeed>k__BackingField: 0
+  <DashLenght>k__BackingField: 0.5
+  <DashCooldown>k__BackingField: 1
+  <DashInvincibility>k__BackingField: 0.5
 --- !u!95 &1272934592
 Animator:
   serializedVersion: 4
@@ -1329,6 +1333,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1353117491 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4654715256918773740, guid: 0d6e3bf9615801440aff84209f92a3b2, type: 3}
+  m_PrefabInstance: {fileID: 4654715256090525500}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1353117492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353117491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c217fb45d212174408e36ec7f04335b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1413367924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1912,6 +1933,10 @@ PrefabInstance:
       propertyPath: <EnemyBody>k__BackingField
       value: 
       objectReference: {fileID: 1036164756}
+    - target: {fileID: 4654715256918773736, guid: 0d6e3bf9615801440aff84209f92a3b2, type: 3}
+      propertyPath: <ShouldShoot>k__BackingField
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4654715256918773740, guid: 0d6e3bf9615801440aff84209f92a3b2, type: 3}
       propertyPath: m_Name
       value: EnemySkeleton
@@ -1922,11 +1947,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4654715256918773742, guid: 0d6e3bf9615801440aff84209f92a3b2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.3
+      value: 8.42
       objectReference: {fileID: 0}
     - target: {fileID: 4654715256918773742, guid: 0d6e3bf9615801440aff84209f92a3b2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.05
+      value: 2.48
       objectReference: {fileID: 0}
     - target: {fileID: 4654715256918773742, guid: 0d6e3bf9615801440aff84209f92a3b2, type: 3}
       propertyPath: m_LocalPosition.z

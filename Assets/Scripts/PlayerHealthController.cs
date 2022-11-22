@@ -47,9 +47,7 @@ public class PlayerHealthController : MonoBehaviour
 
             CurrentHealth--;
 
-            InvincCount = InvincLenght;
-
-            ChangePlayerColorAlpha(0.5f);
+            MakePlayerInvincible(InvincLenght);
 
             if (CurrentHealth <= 0)
             {
@@ -67,5 +65,11 @@ public class PlayerHealthController : MonoBehaviour
     {
         var color = PlayerController.Instance.Body.color;
         PlayerController.Instance.Body.color = new Color(color.r, color.g, color.b, alpha);
+    }
+
+    public void MakePlayerInvincible(float lenght)
+    {
+        InvincCount = lenght;
+        ChangePlayerColorAlpha(0.5f);
     }
 }

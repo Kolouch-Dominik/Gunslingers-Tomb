@@ -23,8 +23,23 @@ public class PlayerController : MonoBehaviour
     private float shotCounter;
     [field: SerializeField]
     public SpriteRenderer Body { get; set; }
+    [field: SerializeField] 
+    public float DashSpeed { get; set; } = 8f;
+    [field: SerializeField]
+    public float DashLenght { get; set; } = 0.5f;
+    [field: SerializeField] 
+    public float DashCooldown { get; set; } = 1f;
+    [field: SerializeField] 
+    public float DashInvincibility { get; set; } = 0.5f;
+
+
+    public float DashCounter { get; private set; }
+    private float dashCoolCounter;
 
     private Vector2 moveInput;
+
+    private float ActiveMoveSpeed { get; set; }
+
 
     private void Awake()
     {
@@ -34,6 +49,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         cam = Camera.main; //v updatu volat Camera.Main --> moc nároèná opera, staèí jednou pøi startu
+
+        ActiveMoveSpeed = MoveSpeed;
     }
 
     // Update is called once per frame
@@ -44,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
         moveInput.Normalize();      //odstranìní chybi pøi držení "w" + smìr do strany (diagonální pohyb) už není rychlejší
 
-        theRB.velocity = moveInput * MoveSpeed;
+        theRB.velocity = moveInput * ActiveMoveSpeed;
 
         var mousePosition = Input.mousePosition;    //pozice myši
         var screenPoint = cam.WorldToScreenPoint(transform.localPosition);  //pozice hráèe
@@ -85,6 +102,32 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (dashCoolCounter <= 0 && DashCounter <= 0)
+            {
+                ActiveMoveSpeed = DashSpeed;
+                DashCounter = DashLenght;
+
+                 Anim.SetTrigger("dashTrigger");
+                 PlayerHealthController.Instance.MakePlayerInvincible(DashLenght);
+            }
+        }
+
+        if (DashCounter > 0)
+        {
+            DashCounter -= Time.deltaTime;
+            if (DashCounter <= 0)
+            {
+                ActiveMoveSpeed = MoveSpeed;
+                dashCoolCounter = DashCooldown;
+            }
+        }
+
+        if (dashCoolCounter > 0)
+        {
+            dashCoolCounter -= Time.deltaTime;
+        }
 
 
         Anim.SetBool("isMoving", moveInput != Vector2.zero);
