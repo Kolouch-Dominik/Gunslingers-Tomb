@@ -27,7 +27,7 @@ public class EnemyBullet : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-
+            PlayerHealthController.Instance.DamagePlayer();
         }
         Destroy(gameObject);
     }
