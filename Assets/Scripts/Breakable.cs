@@ -33,20 +33,30 @@ public class Breakable : MonoBehaviour
         {
             if (PlayerController.Instance.DashCounter > 0)
             {
-                Destroy(gameObject);
-                for (var i = 0; i < Random.Range(1, MaxPieces); i++)
-                {
-                    Instantiate(Breakables[Random.Range(0, Breakables.Count)], transform.position, transform.rotation);
-                }
+                DestroyBreakable();
             }
+        }
+        else if(other.tag.Equals("PlayerBullet"))
+            DestroyBreakable();
+    }
 
-            if (ShouldDropItem)
+    private void DestroyBreakable()
+    {
+        Destroy(gameObject);
+
+        AudioManager.Instance.PlaySFX(0);
+
+        for (var i = 0; i < Random.Range(1, MaxPieces); i++)
+        {
+            Instantiate(Breakables[Random.Range(0, Breakables.Count)], transform.position, transform.rotation);
+        }
+
+        if (ShouldDropItem)
+        {
+            var dropChance = Random.Range(0f, 101f);
+            if (dropChance < DropPercentage)
             {
-                var dropChance = Random.Range(0f, 101f);
-                if (dropChance < DropPercentage)
-                {
-                    Instantiate(ItemsToDrop[Random.Range(0, ItemsToDrop.Count)], transform.position, transform.rotation);
-                }
+                Instantiate(ItemsToDrop[Random.Range(0, ItemsToDrop.Count)], transform.position, transform.rotation);
             }
         }
     }

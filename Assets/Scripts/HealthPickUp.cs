@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,8 +27,11 @@ public class HealthPickUp : MonoBehaviour
     {
         if (other.tag.Equals("Player") && WaitToPickUp <= 0)
         {
-            PlayerHealthController.Instance.CurrentHealth += HealthAmount;
             Destroy(gameObject);
+
+            PlayerHealthController.Instance.HealPlayer(HealthAmount);
+            
+            AudioManager.Instance.PlaySFX(7);
         }
     }
 }

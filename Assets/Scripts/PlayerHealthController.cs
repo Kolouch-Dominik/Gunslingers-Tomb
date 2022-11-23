@@ -9,19 +9,9 @@ public class PlayerHealthController : MonoBehaviour
     [SerializeField]
     public int CurrentHealth
     {
-        get => currentHealth;
-        set
-        {
-            if (currentHealth + value > 5)
-                currentHealth = 5;
-            else currentHealth += value;
-
-            UIController.Instance.HealthSlider.value = currentHealth;
-            UIController.Instance.HealthText.text = currentHealth + " / " + MaxHealth;
-        }
+        get;
+        private set;
     }
-
-    private int currentHealth;
     [field: SerializeField]
     public int MaxHealth { get; private set; }
 
@@ -34,7 +24,7 @@ public class PlayerHealthController : MonoBehaviour
     }
     void Start()
     {
-        currentHealth = MaxHealth;
+        CurrentHealth = MaxHealth;
 
         UIController.Instance.HealthSlider.maxValue = MaxHealth;
         UIController.Instance.HealthSlider.value = CurrentHealth;
@@ -60,19 +50,24 @@ public class PlayerHealthController : MonoBehaviour
         if (InvincCount <= 0)
         {
 
-            currentHealth--;
+            CurrentHealth--;
+            AudioManager.Instance.PlaySFX(11);
 
             MakePlayerInvincible(InvincLenght);
 
-            if (currentHealth <= 0)
+            if (CurrentHealth <= 0)
             {
                 PlayerController.Instance.gameObject.SetActive(false);
+
                 UIController.Instance.DeathScreen.SetActive(true);
+
+                AudioManager.Instance.PlayGameOver();
+                AudioManager.Instance.PlaySFX(8);
             }
 
 
-            UIController.Instance.HealthSlider.value = currentHealth;
-            UIController.Instance.HealthText.text = currentHealth + " / " + MaxHealth;
+            UIController.Instance.HealthSlider.value = CurrentHealth;
+            UIController.Instance.HealthText.text = CurrentHealth + " / " + MaxHealth;
         }
     }
 
@@ -87,5 +82,14 @@ public class PlayerHealthController : MonoBehaviour
         InvincCount = lenght;
         ChangePlayerColorAlpha(0.5f);
     }
-    
+
+    public void HealPlayer(int amount)
+    {
+        if (CurrentHealth + amount > 5)
+            CurrentHealth = 5;
+        else CurrentHealth += amount;
+
+        UIController.Instance.HealthSlider.value = CurrentHealth;
+        UIController.Instance.HealthText.text = CurrentHealth + " / " + MaxHealth;
+    }
 }
