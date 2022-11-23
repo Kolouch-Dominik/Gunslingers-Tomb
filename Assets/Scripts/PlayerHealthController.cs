@@ -5,10 +5,25 @@ using UnityEngine;
 public class PlayerHealthController : MonoBehaviour
 {
     public static PlayerHealthController Instance { get; set; }
+
+    [SerializeField]
+    public int CurrentHealth
+    {
+        get => currentHealth;
+        set
+        {
+            if (currentHealth + value > 5)
+                currentHealth = 5;
+            else currentHealth += value;
+
+            UIController.Instance.HealthSlider.value = currentHealth;
+            UIController.Instance.HealthText.text = currentHealth + " / " + MaxHealth;
+        }
+    }
+
+    private int currentHealth;
     [field: SerializeField]
-    public int CurrentHealth { get; set; }
-    [field: SerializeField]
-    public int MaxHealth { get; set; }
+    public int MaxHealth { get; private set; }
 
     public float InvincLenght { get; set; } = 1f;
     public float InvincCount { get; set; }
@@ -19,7 +34,7 @@ public class PlayerHealthController : MonoBehaviour
     }
     void Start()
     {
-        CurrentHealth = MaxHealth;
+        currentHealth = MaxHealth;
 
         UIController.Instance.HealthSlider.maxValue = MaxHealth;
         UIController.Instance.HealthSlider.value = CurrentHealth;
@@ -45,19 +60,19 @@ public class PlayerHealthController : MonoBehaviour
         if (InvincCount <= 0)
         {
 
-            CurrentHealth--;
+            currentHealth--;
 
             MakePlayerInvincible(InvincLenght);
 
-            if (CurrentHealth <= 0)
+            if (currentHealth <= 0)
             {
                 PlayerController.Instance.gameObject.SetActive(false);
                 UIController.Instance.DeathScreen.SetActive(true);
             }
 
 
-            UIController.Instance.HealthSlider.value = CurrentHealth;
-            UIController.Instance.HealthText.text = CurrentHealth + " / " + MaxHealth;
+            UIController.Instance.HealthSlider.value = currentHealth;
+            UIController.Instance.HealthText.text = currentHealth + " / " + MaxHealth;
         }
     }
 
@@ -72,4 +87,5 @@ public class PlayerHealthController : MonoBehaviour
         InvincCount = lenght;
         ChangePlayerColorAlpha(0.5f);
     }
+    
 }

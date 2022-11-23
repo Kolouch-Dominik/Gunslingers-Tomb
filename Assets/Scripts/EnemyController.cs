@@ -64,7 +64,8 @@ public class EnemyController : MonoBehaviour
                     Instantiate(Bullet, FirePoint.position, FirePoint.rotation);
                 }
             }
-        } else EnemyBody.velocity = Vector3.zero;
+        }
+        else EnemyBody.velocity = Vector3.zero;
 
         Anim.SetBool("isMoving", moveDirection != Vector3.zero);
     }

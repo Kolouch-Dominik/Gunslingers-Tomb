@@ -30,7 +30,7 @@ public class PlayerBullet : MonoBehaviour
     {
         Instantiate(ImpactEffect, transform.position, transform.rotation);
         Destroy(gameObject);
-        if(other.tag.Equals("Enemy"))
+        if (other.tag.Equals("Enemy"))
             other.GetComponent<EnemyController>().DamageEnemy(BulletDamage);
     }
 

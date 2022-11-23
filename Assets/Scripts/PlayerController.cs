@@ -23,13 +23,13 @@ public class PlayerController : MonoBehaviour
     private float shotCounter;
     [field: SerializeField]
     public SpriteRenderer Body { get; set; }
-    [field: SerializeField] 
+    [field: SerializeField]
     public float DashSpeed { get; set; } = 8f;
     [field: SerializeField]
     public float DashLenght { get; set; } = 0.5f;
-    [field: SerializeField] 
+    [field: SerializeField]
     public float DashCooldown { get; set; } = 1f;
-    [field: SerializeField] 
+    [field: SerializeField]
     public float DashInvincibility { get; set; } = 0.5f;
 
 
@@ -109,8 +109,8 @@ public class PlayerController : MonoBehaviour
                 ActiveMoveSpeed = DashSpeed;
                 DashCounter = DashLenght;
 
-                 Anim.SetTrigger("dashTrigger");
-                 PlayerHealthController.Instance.MakePlayerInvincible(DashLenght);
+                Anim.SetTrigger("dashTrigger");
+                PlayerHealthController.Instance.MakePlayerInvincible(DashLenght);
             }
         }
 
