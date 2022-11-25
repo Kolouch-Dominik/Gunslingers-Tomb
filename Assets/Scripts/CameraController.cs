@@ -8,8 +8,13 @@ public class CameraController : MonoBehaviour
     [field: SerializeField]
     public float MoveSpeed { get; set; }
     [field: SerializeField]
-    public Transform Target { get; set; }
+    public Transform Target { get; private set; }
 
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
@@ -22,5 +27,10 @@ public class CameraController : MonoBehaviour
         if (Target != null)
             transform.position = Vector3.MoveTowards(transform.position,
             new Vector3(Target.position.x, Target.position.y, transform.position.z), MoveSpeed*Time.deltaTime);
+    }
+
+    public void SetTarget(Transform target)
+    {
+        Target = target;
     }
 }
