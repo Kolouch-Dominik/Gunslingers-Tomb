@@ -9,7 +9,7 @@ public class UIController : MonoBehaviour
     [field: SerializeField]
     public Slider HealthSlider { get; set; }
     [field: SerializeField]
-    public Text HealthText { get; set; }
+    public Text HealthText { get; set; }    
     [field: SerializeField]
     public GameObject DeathScreen { get; set; }
 
