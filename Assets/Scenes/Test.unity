@@ -2459,17 +2459,9 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 868476193, guid: 3664e901538a8a441b8da2073e3d2699, type: 3}
-      propertyPath: m_TagString
-      value: Door
-      objectReference: {fileID: 0}
     - target: {fileID: 945070147, guid: 3664e901538a8a441b8da2073e3d2699, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 945070147, guid: 3664e901538a8a441b8da2073e3d2699, type: 3}
-      propertyPath: m_TagString
-      value: Door
       objectReference: {fileID: 0}
     - target: {fileID: 945070149, guid: 3664e901538a8a441b8da2073e3d2699, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2485,18 +2477,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 674765215155848087, guid: 3664e901538a8a441b8da2073e3d2699, type: 3}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 674765215155848087, guid: 3664e901538a8a441b8da2073e3d2699, type: 3}
-      propertyPath: m_TagString
-      value: Activator
-      objectReference: {fileID: 0}
-    - target: {fileID: 4061378892885400781, guid: 3664e901538a8a441b8da2073e3d2699, type: 3}
-      propertyPath: doorsCloseOnEnter
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4061378892885400781, guid: 3664e901538a8a441b8da2073e3d2699, type: 3}
-      propertyPath: openWhenEnemiesClear
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4061378892885400781, guid: 3664e901538a8a441b8da2073e3d2699, type: 3}
@@ -5198,16 +5178,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4061378892885400781, guid: 3664e901538a8a441b8da2073e3d2699, type: 3}
-      propertyPath: doorsCloseOnEnter
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4061378892885400781, guid: 3664e901538a8a441b8da2073e3d2699, type: 3}
       propertyPath: <CloseWhenEnter>k__BackingField
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4061378892885400781, guid: 3664e901538a8a441b8da2073e3d2699, type: 3}
       propertyPath: <Enemies>k__BackingField.Array.size
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4061378892885400781, guid: 3664e901538a8a441b8da2073e3d2699, type: 3}
       propertyPath: <Enemirs>k__BackingField.Array.size
@@ -7828,16 +7804,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4061378892885400781, guid: 3664e901538a8a441b8da2073e3d2699, type: 3}
-      propertyPath: doorsCloseOnEnter
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4061378892885400781, guid: 3664e901538a8a441b8da2073e3d2699, type: 3}
       propertyPath: <CloseWhenEnter>k__BackingField
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4061378892885400781, guid: 3664e901538a8a441b8da2073e3d2699, type: 3}
       propertyPath: <Enemies>k__BackingField.Array.size
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4061378892885400781, guid: 3664e901538a8a441b8da2073e3d2699, type: 3}
       propertyPath: <Enemirs>k__BackingField.Array.size
@@ -10686,7 +10658,7 @@ GameObject:
   - component: {fileID: 1212982512}
   m_Layer: 0
   m_Name: DoorVertical
-  m_TagString: Door
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14451,7 +14423,6 @@ GameObject:
   - component: {fileID: 1950067517}
   - component: {fileID: 1950067516}
   - component: {fileID: 1950067518}
-  - component: {fileID: 1950067519}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -14526,19 +14497,6 @@ MonoBehaviour:
   - {fileID: 750375652}
   - {fileID: 1919652960}
   - {fileID: 892117230}
---- !u!114 &1950067519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1950067515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5e120bce0d9b694280da3a2557926c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <NextLevel>k__BackingField: Test
 --- !u!1001 &1950132803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17480,10 +17438,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1963306059, guid: 3664e901538a8a441b8da2073e3d2699, type: 3}
-      propertyPath: m_TagString
-      value: Activator
-      objectReference: {fileID: 0}
     - target: {fileID: 674765215155848087, guid: 3664e901538a8a441b8da2073e3d2699, type: 3}
       propertyPath: m_Name
       value: Room Basic
@@ -17632,10 +17586,6 @@ PrefabInstance:
     - target: {fileID: 5695843746211372639, guid: 97b974ea0d38c504cad753e4063f27c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8430619034454825924, guid: 97b974ea0d38c504cad753e4063f27c4, type: 3}
-      propertyPath: LevelToLoad
-      value: Test
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97b974ea0d38c504cad753e4063f27c4, type: 3}

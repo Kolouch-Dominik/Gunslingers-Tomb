@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     [field: SerializeField]
     public float DashInvincibility { get; set; } = 0.5f;
 
+    public bool CanMove { get; set; } = true;
 
     public float DashCounter { get; private set; }
     private float dashCoolCounter;
@@ -56,6 +57,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!CanMove)
+        {
+            theRB.velocity = Vector2.zero;
+            Anim.SetBool("isMoving", false);
+            return;
+        }
+
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
 

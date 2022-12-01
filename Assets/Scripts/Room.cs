@@ -5,56 +5,71 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    [field: SerializeField] public bool CloseWhenEnter { get; set; }
-    [field: SerializeField] public bool OpenWhenEnemiesDied { get; set; }
-    [field: SerializeField] public List<GameObject> Doors { get; set; }
-    [field: SerializeField] public List<GameObject> Enemies { get; set; } = new List<GameObject>();
-    private bool roomActive;
+    public bool doorsCloseOnEnter;
+    public bool openWhenEnemiesClear;
 
+    [field: SerializeField]
+    public List<GameObject> Doors { get; set; } = new List<GameObject>();
+    [field: SerializeField]
+    public List<GameObject> Enemies { get; set; } = new List<GameObject>();
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        if (Enemies.Count > 0 && roomActive && OpenWhenEnemiesDied)
+        if (!(PlayerIsHere() && openWhenEnemiesClear))
         {
-            for (var i = 0; i < Enemies.Count; i++)
-            {
-                if (Enemies[i].Equals(null))
-                {
-                    Enemies.RemoveAt(i);
-                    --i;
-                }
-            }
+            return;
+        }
 
-            if (Enemies.Count == 0)
+        for (int i = 0; i < Enemies.Count; i++)
+        {
+            if (Enemies[i] == null)
             {
-                Doors.ForEach(x => x.SetActive(false));
-                CloseWhenEnter = false;
+                Enemies.RemoveAt(i);
+                i--;
             }
+        }
+
+        if (Enemies.Count == 0)
+        {
+            RemoveDoors();
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag.Equals("Player"))
+        if (!other.CompareTag("Player"))
         {
-            CameraController.Instance.SetTarget(transform);
-
-            if (CloseWhenEnter)
-                Doors.ForEach(x=>x.SetActive(true));
-
-            roomActive = true;
+            return;
         }
+
+        LevelManager.Instance.CurrentRoom = this;
+        MoveCameraToHere();
+        MaybeActivateDoors();
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void MaybeActivateDoors()
     {
-        if(other.tag.Equals("Player"))
-            roomActive = false;
+        if (!doorsCloseOnEnter)
+        {
+            return;
+        }
+
+        Doors.ForEach(x => x.SetActive(true));
+    }
+
+    private void MoveCameraToHere()
+    {
+        CameraController.Instance.SetTarget(transform);
+    }
+
+    private void RemoveDoors()
+    {
+        Doors.ForEach(x=>x.SetActive(false));
+        doorsCloseOnEnter = false;
+    }
+
+    private bool PlayerIsHere()
+    {
+        return LevelManager.Instance.CurrentRoom == this;
     }
 }

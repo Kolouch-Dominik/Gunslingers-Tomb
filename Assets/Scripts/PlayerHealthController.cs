@@ -85,8 +85,8 @@ public class PlayerHealthController : MonoBehaviour
 
     public void HealPlayer(int amount)
     {
-        if (CurrentHealth + amount > 5)
-            CurrentHealth = 5;
+        if (CurrentHealth + amount > MaxHealth)
+            CurrentHealth = MaxHealth;
         else CurrentHealth += amount;
 
         UIController.Instance.HealthSlider.value = CurrentHealth;
