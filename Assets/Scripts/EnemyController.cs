@@ -62,9 +62,11 @@ public class EnemyController : MonoBehaviour
                 {
                     fireCounter = FireRate;
                     Instantiate(Bullet, FirePoint.position, FirePoint.rotation);
+                    AudioManager.Instance.PlaySFX(12);
                 }
             }
-        } else EnemyBody.velocity = Vector3.zero;
+        }
+        else EnemyBody.velocity = Vector3.zero;
 
         Anim.SetBool("isMoving", moveDirection != Vector3.zero);
     }
@@ -73,9 +75,11 @@ public class EnemyController : MonoBehaviour
     {
         Health -= damage;
         Instantiate(HitEffect, transform.position, transform.rotation);
+        AudioManager.Instance.PlaySFX(2);
         if (Health > 0) return;
 
         Destroy(gameObject);
+        AudioManager.Instance.PlaySFX(1);
         Instantiate(Splatters[Random.Range(0, Splatters.Count)], transform.position, Quaternion.Euler(0f, 0f, Random.Range(0, 360)));
     }
 
