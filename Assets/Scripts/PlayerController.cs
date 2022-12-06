@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!CanMove)
+        if (!CanMove || LevelManager.Instance.IsPaused)
         {
             theRB.velocity = Vector2.zero;
             Anim.SetBool("isMoving", false);
