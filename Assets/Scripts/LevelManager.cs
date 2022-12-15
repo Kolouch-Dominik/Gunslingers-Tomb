@@ -7,7 +7,6 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; set; }
     private float waitToLoad = 4;
-    public Room CurrentRoom { get; set; }
     [field: SerializeField]
     public bool IsPaused { get; set; }
 
