@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     [field: SerializeField]
     public Animator Anim { get; set; }
 
+    [field: SerializeField]
     public int Health { get; set; } = 150;
 
     [field: SerializeField]

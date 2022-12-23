@@ -162,8 +162,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <EnemyBody>k__BackingField: {fileID: 7586690736273347626}
   <MoveSpeed>k__BackingField: 2
-  <RangeToChase>k__BackingField: 7
   <Anim>k__BackingField: {fileID: 7586690736273347628}
+  <Health>k__BackingField: 300
   <Splatters>k__BackingField:
   - {fileID: 8010494508425079908, guid: b663d64d3aaaa894383150f7e768fd57, type: 3}
   - {fileID: 4011945616307991146, guid: 7a3157fbc38442143a83e81cfdd43072, type: 3}
@@ -177,11 +177,14 @@ MonoBehaviour:
   <Body>k__BackingField: {fileID: 7586690736097433498}
   <ShootRange>k__BackingField: 10
   <ShouldChasePlayer>k__BackingField: 1
+  <RangeToChase>k__BackingField: 7
   <ShouldRunAway>k__BackingField: 0
   <runawayRange>k__BackingField: 0
   <ShouldWander>k__BackingField: 1
   <WanderLenght>k__BackingField: 4
   <PauseLenght>k__BackingField: 1.5
+  <ShouldPatrol>k__BackingField: 0
+  <PatrolPoints>k__BackingField: []
 --- !u!50 &7586690736273347626
 Rigidbody2D:
   serializedVersion: 4
