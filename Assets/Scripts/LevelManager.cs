@@ -67,6 +67,7 @@ public class LevelManager : MonoBehaviour
     public void AddCoins(int amount)
     {
         CurrentCoins += amount;
+
         UIController.Instance.CoinText.text = CurrentCoins.ToString();
     }
     public void SpendCoins(int amount)
@@ -75,6 +76,7 @@ public class LevelManager : MonoBehaviour
 
         if (CurrentCoins < 0)
             CurrentCoins = 0; 
+
         UIController.Instance.CoinText.text = CurrentCoins.ToString();
     }
 }

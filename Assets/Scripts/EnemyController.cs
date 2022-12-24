@@ -52,9 +52,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         if (ShouldWander)
-        {
             pauseCounter = Random.Range(PauseLenght * 0.75f, PauseLenght * 1.25f);
-        }
     }
 
     // Update is called once per frame

@@ -480,8 +480,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -734.3, y: 474.4}
-  m_SizeDelta: {x: 241.0914, y: 50.3229}
+  m_AnchoredPosition: {x: -719.45, y: 474.4}
+  m_SizeDelta: {x: 270.79, y: 50.3229}
   m_Pivot: {x: 0.50000006, y: 0.49999994}
 --- !u!222 &6043497522201730923
 CanvasRenderer:
@@ -681,6 +681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <HealthSlider>k__BackingField: {fileID: 6043497523671118101}
   <HealthText>k__BackingField: {fileID: 6043497522201730922}
+  <CoinText>k__BackingField: {fileID: 3703098566974261331}
   <DeathScreen>k__BackingField: {fileID: 6043497523304106002}
   <FadeScreen>k__BackingField: {fileID: 6043497523575721666}
   <PauseMenu>k__BackingField: {fileID: 853642451}
