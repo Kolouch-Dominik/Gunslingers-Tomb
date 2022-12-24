@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff93a10aa2a465a40add716914ea0976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelToLoad: Victory
 --- !u!1 &4814893369560949936
 GameObject:
   m_ObjectHideFlags: 0

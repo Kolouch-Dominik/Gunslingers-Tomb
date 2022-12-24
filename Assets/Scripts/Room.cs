@@ -6,70 +6,51 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     public bool doorsCloseOnEnter;
-    public bool openWhenEnemiesClear;
+    
 
     [field: SerializeField]
     public List<GameObject> Doors { get; set; } = new List<GameObject>();
-    [field: SerializeField]
-    public List<GameObject> Enemies { get; set; } = new List<GameObject>();
+    
+    public bool IsActive { get; private set; }
 
     void Update()
     {
-        if (!(PlayerIsHere() && openWhenEnemiesClear))
-        {
-            return;
-        }
-
-        for (int i = 0; i < Enemies.Count; i++)
-        {
-            if (Enemies[i] == null)
-            {
-                Enemies.RemoveAt(i);
-                i--;
-            }
-        }
-
-        if (Enemies.Count == 0)
-        {
-            RemoveDoors();
-        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player"))
+        if (other.tag == "Player")
         {
-            return;
-        }
+            CameraController.Instance.SetTarget(transform);
 
-        LevelManager.Instance.CurrentRoom = this;
-        MoveCameraToHere();
-        MaybeActivateDoors();
+            if (doorsCloseOnEnter)
+            {
+                foreach (var door in Doors)
+                {
+                    door.SetActive(true);   
+                }
+            }
+
+            IsActive = true;
+        }
     }
 
-    private void MaybeActivateDoors()
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (!doorsCloseOnEnter)
+        if (other.tag == "Player")
         {
-            return;
+            IsActive = false;
         }
-
-        Doors.ForEach(x => x.SetActive(true));
     }
 
-    private void MoveCameraToHere()
+    public void OpenDoors()
     {
-        CameraController.Instance.SetTarget(transform);
-    }
+        foreach (var door in Doors)
+        {
+            door.SetActive(false);
 
-    private void RemoveDoors()
-    {
-        Doors.ForEach(x=>x.SetActive(false));
-        doorsCloseOnEnter = false;
-    }
-
-    private bool PlayerIsHere()
-    {
-        return LevelManager.Instance.CurrentRoom == this;
+            doorsCloseOnEnter = false;
+        }
     }
 }
