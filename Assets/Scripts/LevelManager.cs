@@ -10,6 +10,10 @@ public class LevelManager : MonoBehaviour
     [field: SerializeField]
     public bool IsPaused { get; set; }
 
+    [field: SerializeField]
+    public int CurrentCoins { get; private set; }
+
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -18,6 +22,8 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
+
+        UIController.Instance.CoinText.text = CurrentCoins.ToString();
     }
 
     // Update is called once per frame
@@ -42,10 +48,10 @@ public class LevelManager : MonoBehaviour
 
     public void PauseUnpause()
     {
-        
-        if(!IsPaused)
+
+        if (!IsPaused)
         {
-            UIController.Instance.PauseMenu.SetActive(true); 
+            UIController.Instance.PauseMenu.SetActive(true);
 
             Time.timeScale = 0f;
         }
@@ -56,5 +62,19 @@ public class LevelManager : MonoBehaviour
             Time.timeScale = 1f;
         }
         IsPaused = !IsPaused;
+    }
+
+    public void AddCoins(int amount)
+    {
+        CurrentCoins += amount;
+        UIController.Instance.CoinText.text = CurrentCoins.ToString();
+    }
+    public void SpendCoins(int amount)
+    {
+        CurrentCoins -= amount;
+
+        if (CurrentCoins < 0)
+            CurrentCoins = 0; 
+        UIController.Instance.CoinText.text = CurrentCoins.ToString();
     }
 }

@@ -77,8 +77,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <EnemyBody>k__BackingField: {fileID: 4654715256918773743}
   <MoveSpeed>k__BackingField: 2
-  <RangeToChase>k__BackingField: 7
   <Anim>k__BackingField: {fileID: 4654715256918773737}
+  <Health>k__BackingField: 150
   <Splatters>k__BackingField:
   - {fileID: 8010494508425079908, guid: b663d64d3aaaa894383150f7e768fd57, type: 3}
   - {fileID: 4011945616307991146, guid: 7a3157fbc38442143a83e81cfdd43072, type: 3}
@@ -92,8 +92,18 @@ MonoBehaviour:
   <Body>k__BackingField: {fileID: 4654715257111465055}
   <ShootRange>k__BackingField: 10
   <ShouldChasePlayer>k__BackingField: 1
+  <RangeToChase>k__BackingField: 7
   <ShouldRunAway>k__BackingField: 0
   <runawayRange>k__BackingField: 0
+  <ShouldWander>k__BackingField: 0
+  <WanderLenght>k__BackingField: 0
+  <PauseLenght>k__BackingField: 0
+  <ShouldPatrol>k__BackingField: 0
+  <PatrolPoints>k__BackingField: []
+  <ShouldDropItem>k__BackingField: 1
+  <ItemsToDrop>k__BackingField:
+  - {fileID: 4351400977523796225, guid: d05ac92a27ef42b4aa9aeca9b80ff506, type: 3}
+  <DropPercentage>k__BackingField: 25
 --- !u!50 &4654715256918773743
 Rigidbody2D:
   serializedVersion: 4

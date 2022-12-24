@@ -8,23 +8,19 @@ using UnityEngine.SceneManagement;
 public class UIController : MonoBehaviour
 {
     public static UIController Instance { get; set; }
-    [field: SerializeField]
-    public Slider HealthSlider { get; set; }
-    [field: SerializeField]
-    public Text HealthText { get; set; }    
-    [field: SerializeField]
-    public GameObject DeathScreen { get; set; }
-    [field: SerializeField]
-    public Image FadeScreen { get; set; }
-    [field: SerializeField]
-    public GameObject PauseMenu { get; set; }
+    [field: SerializeField] public Slider HealthSlider { get; set; }
+    [field: SerializeField] public Text HealthText { get; set; }
+    [field: SerializeField] public Text CoinText { get; set; }
+    [field: SerializeField] public GameObject DeathScreen { get; set; }
+    [field: SerializeField] public Image FadeScreen { get; set; }
+    [field: SerializeField] public GameObject PauseMenu { get; set; }
 
     private float fadeSpeed = 1f;
     private bool fadeToBlack, fadeOutBlack;
     [field: SerializeField]
     public string NewGameScene { get; set; }
     [field: SerializeField]
-    public string MainMenuScene {get; set; }
+    public string MainMenuScene { get; set; }
 
 
     private void Awake()
@@ -44,8 +40,8 @@ public class UIController : MonoBehaviour
         if (fadeOutBlack)
         {
             var c = FadeScreen.color;
-            FadeScreen.color = new Color(c.r, c.g, c.b, Mathf.MoveTowards(c.a, 0f, fadeSpeed*Time.deltaTime));
-            if(FadeScreen.color.a.Equals(0))
+            FadeScreen.color = new Color(c.r, c.g, c.b, Mathf.MoveTowards(c.a, 0f, fadeSpeed * Time.deltaTime));
+            if (FadeScreen.color.a.Equals(0))
                 fadeOutBlack = false;
         }
         if (fadeToBlack)
@@ -57,7 +53,7 @@ public class UIController : MonoBehaviour
         }
     }
     public void StartFadeToBlack()
-    { 
+    {
         fadeToBlack = true;
         fadeOutBlack = false;
     }
@@ -78,6 +74,6 @@ public class UIController : MonoBehaviour
 
     public void Resume()
     {
-        LevelManager.Instance.PauseUnpause(); 
+        LevelManager.Instance.PauseUnpause();
     }
 }
