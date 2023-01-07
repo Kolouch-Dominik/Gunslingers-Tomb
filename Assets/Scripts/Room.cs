@@ -6,16 +6,16 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     public bool doorsCloseOnEnter;
-    
 
-    [field: SerializeField]
-    public List<GameObject> Doors { get; set; } = new List<GameObject>();
-    
+
+    [field: SerializeField] public List<GameObject> Doors { get; set; } = new List<GameObject>();
+    [field: SerializeField] public GameObject MapHider { get; set; }
+
     public bool IsActive { get; private set; }
 
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -28,11 +28,12 @@ public class Room : MonoBehaviour
             {
                 foreach (var door in Doors)
                 {
-                    door.SetActive(true);   
+                    door.SetActive(true);
                 }
-            }
-
+            } 
             IsActive = true;
+
+            MapHider.SetActive(false); 
         }
     }
 

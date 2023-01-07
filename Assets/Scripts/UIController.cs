@@ -14,13 +14,16 @@ public class UIController : MonoBehaviour
     [field: SerializeField] public GameObject DeathScreen { get; set; }
     [field: SerializeField] public Image FadeScreen { get; set; }
     [field: SerializeField] public GameObject PauseMenu { get; set; }
+    [field: SerializeField] public GameObject MapDisplay { get; set; }
+    [field: SerializeField] public GameObject BigMapText { get; set; }
+
 
     private float fadeSpeed = 1f;
     private bool fadeToBlack, fadeOutBlack;
-    [field: SerializeField]
-    public string NewGameScene { get; set; }
-    [field: SerializeField]
-    public string MainMenuScene { get; set; }
+    [field: SerializeField] public string NewGameScene { get; set; }
+    [field: SerializeField] public string MainMenuScene { get; set; }
+
+
 
 
     private void Awake()
