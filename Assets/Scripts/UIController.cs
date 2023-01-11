@@ -22,6 +22,8 @@ public class UIController : MonoBehaviour
     private bool fadeToBlack, fadeOutBlack;
     [field: SerializeField] public string NewGameScene { get; set; }
     [field: SerializeField] public string MainMenuScene { get; set; }
+    [field: SerializeField] public Image CurrentGun { get; set; }
+    [field: SerializeField] public Text GunText { get; set; }
 
 
 

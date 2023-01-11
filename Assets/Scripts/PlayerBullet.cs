@@ -6,15 +6,10 @@ using UnityEngine;
 public class PlayerBullet : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float Speed { get; set; } = 7.5f;
-    [field: SerializeField]
-    public Rigidbody2D BulletRB { get; set; }
-
-    [field: SerializeField]
-    public GameObject ImpactEffect { get; set; }
-
-    [field: SerializeField]
-    public int BulletDamage { get; set; } = 50;
+    [field: SerializeField] public float Speed { get; set; }
+    [field: SerializeField] public Rigidbody2D BulletRB { get; set; }
+    [field: SerializeField] public GameObject ImpactEffect { get; set; }
+    [field: SerializeField] public int BulletDamage { get; set; }
     void Start()
     {
 

@@ -70,12 +70,12 @@ public class LevelGenerator : MonoBehaviour
 
         if(IncludeShop)
         {
+
             int shopSelector = Random.Range(MinDistanceToShop, MaxDistanceToShop + 1);
             ShopRoom = layoutRoomObjects[shopSelector];
             layoutRoomObjects.RemoveAt(shopSelector);
 
             ShopRoom.GetComponent<SpriteRenderer>().color = ShopColor;
-
         }
 
         CreateRoomOutline(Vector3.zero);

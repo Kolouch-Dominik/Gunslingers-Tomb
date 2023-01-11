@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f2477e40ad09141bfcc4c36f3ddc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Speed>k__BackingField: 7.5
   <BulletRB>k__BackingField: {fileID: 1812348699427440588}
   <ImpactEffect>k__BackingField: {fileID: 8781111597144935778, guid: 928446a94198df3449098533971ac7a0, type: 3}
   <BulletDamage>k__BackingField: 50
