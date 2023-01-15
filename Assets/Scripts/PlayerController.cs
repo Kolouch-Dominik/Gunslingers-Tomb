@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
-    public static PlayerController Instance { get; private set; }
+    public static PlayerController Instance { get; set; }
     [field: SerializeField] public float MoveSpeed { get; private set; }
     [field: SerializeField] public Animator Anim { get; private set; }
     [field: SerializeField] public Rigidbody2D TheRB { get; set; }

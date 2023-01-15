@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
     public static CameraController Instance { get; set; }
 
     [field: SerializeField] public float MoveSpeed { get; set; }
-    [field: SerializeField] public Transform Target { get; private set; }
+    [field: SerializeField] public Transform Target { get; set; }
     [field: SerializeField] public Camera MainCamera { get; set; }
     [field: SerializeField] public Camera BigMapCamera { get; set; }
 

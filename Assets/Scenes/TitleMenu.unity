@@ -457,7 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f566ca8697dec4a95511410097d312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LevelToLoad>k__BackingField: Level 1
+  <LevelToLoad>k__BackingField: CharacterSelect
 --- !u!1 &573466593
 GameObject:
   m_ObjectHideFlags: 0
