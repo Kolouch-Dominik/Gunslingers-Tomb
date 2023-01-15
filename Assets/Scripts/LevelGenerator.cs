@@ -14,10 +14,15 @@ public class LevelGenerator : MonoBehaviour
     [field: SerializeField] public Color StartColor { get; set; }
     [field: SerializeField] public Color EndColor { get; set; }
     [field: SerializeField] public Color ShopColor { get; set; }
+    [field: SerializeField] public Color GunRoomColor { get; set; }
     [field: SerializeField] public int DistanceToEnd { get; set; }
     [field: SerializeField] public Transform GeneratorPoint { get; set; }
     [field: SerializeField] public Direction SelectedDirection { get; set; }
-    
+
+    [field: SerializeField] public bool IncludeGunRoom { get; set; }
+    [field: SerializeField] public int MinDistanceToGun { get; set; }
+    [field: SerializeField] public int MaxDistanceToGun { get; set; }
+
 
     public enum Direction { Up, Down, Left, Right }
 
@@ -25,6 +30,7 @@ public class LevelGenerator : MonoBehaviour
 
     private GameObject EndRoom { get; set; }
     private GameObject ShopRoom { get; set; }
+    private GameObject GunRoom { get; set; }
 
     [field: SerializeField] public LayerMask RoomLayerNumber { get; set; }
 
@@ -34,6 +40,7 @@ public class LevelGenerator : MonoBehaviour
     [field: SerializeField] public RoomCenter CenterStart { get; set; }
     [field: SerializeField] public RoomCenter CenterEnd { get; set; }
     [field: SerializeField] public RoomCenter CenterShop { get; set; }
+    [field: SerializeField] public RoomCenter CenterGunRoom { get; set; }
     [field: SerializeField] public List<RoomCenter> PotentialCenters { get; set; }
     [field: SerializeField] public RoomPrefabs Rooms { get; set; }
     [field: SerializeField] public List<GameObject> GeneratedOutlines { get; set; } = new List<GameObject>();
@@ -77,6 +84,15 @@ public class LevelGenerator : MonoBehaviour
 
             ShopRoom.GetComponent<SpriteRenderer>().color = ShopColor;
         }
+        if (IncludeGunRoom)
+        {
+
+            int grSelector = Random.Range(MinDistanceToGun, MaxDistanceToGun/* +1 - postupnì se snižuje poèet možných místnosti a zaène tam padat vyjímka*/);
+            GunRoom = layoutRoomObjects[grSelector];
+            layoutRoomObjects.RemoveAt(grSelector);
+
+            GunRoom.GetComponent<SpriteRenderer>().color = GunRoomColor;
+        }
 
         CreateRoomOutline(Vector3.zero);
         foreach (var room in layoutRoomObjects)
@@ -84,8 +100,9 @@ public class LevelGenerator : MonoBehaviour
             CreateRoomOutline(room.transform.position);
         }
         CreateRoomOutline(EndRoom.transform.position);
-        if (IncludeShop) { CreateRoomOutline(ShopRoom.transform.position); }
 
+        if (IncludeShop) CreateRoomOutline(ShopRoom.transform.position);
+        if (IncludeGunRoom) CreateRoomOutline(GunRoom.transform.position);
 
         foreach (var outline in GeneratedOutlines)
         {
@@ -111,6 +128,16 @@ public class LevelGenerator : MonoBehaviour
                 if (outline.transform.position == ShopRoom.transform.position)
                 {
                     Instantiate(CenterShop, outline.transform.position, transform.rotation).Room =
+                        outline.GetComponent<Room>();
+                    generateCenter = false;
+                }
+            }
+
+            if(IncludeGunRoom)
+            {
+                if (outline.transform.position == GunRoom.transform.position)
+                {
+                    Instantiate(CenterGunRoom, outline.transform.position, transform.rotation).Room =
                         outline.GetComponent<Room>();
                     generateCenter = false;
                 }

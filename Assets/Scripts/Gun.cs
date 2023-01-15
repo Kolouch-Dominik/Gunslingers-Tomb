@@ -11,6 +11,10 @@ public class Gun : MonoBehaviour
     [field: SerializeField] public Sprite GunUI { get; set; }
     private float shotCounter;
 
+    [field: SerializeField] public int ItemCost { get; set; }
+    [field: SerializeField] public Sprite GunShopSprite { get; set; }
+
+
     // Start is called before the first frame update
     void Start()
     {

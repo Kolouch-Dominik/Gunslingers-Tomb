@@ -37,6 +37,9 @@ public class UIController : MonoBehaviour
     {
         fadeOutBlack = true;
         fadeToBlack = false;
+
+        CurrentGun.sprite = PlayerController.Instance.AvailableGuns[PlayerController.Instance.CurrentGunNum].GunUI;
+        GunText.text = PlayerController.Instance.AvailableGuns[PlayerController.Instance.CurrentGunNum].WeaponName;
     }
 
     // Update is called once per frame

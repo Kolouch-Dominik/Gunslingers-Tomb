@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     [field: SerializeField] public Animator Anim { get; private set; }
     [field: SerializeField] public Rigidbody2D TheRB { get; set; }
     [field: SerializeField] public Transform GunArm { get; set; }
-    private Camera cam;
 
     /*[field: SerializeField] public GameObject BulletToFire { get; set; }
     [field: SerializeField] public Transform FirePoint { get; set; }
@@ -38,11 +37,13 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        DontDestroyOnLoad(gameObject);
     }
 
     void Start()
     {
-        cam = Camera.main; //v updatu volat Camera.Main --> moc nároèná opera, staèí jednou pøi startu
+        
 
         ActiveMoveSpeed = MoveSpeed;
 
@@ -68,7 +69,7 @@ public class PlayerController : MonoBehaviour
         TheRB.velocity = moveInput * ActiveMoveSpeed;
 
         var mousePosition = Input.mousePosition;    //pozice myši
-        var screenPoint = cam.WorldToScreenPoint(transform.localPosition);  //pozice hráèe
+        var screenPoint = CameraController.Instance.MainCamera.WorldToScreenPoint(transform.localPosition);  //pozice hráèe
 
         //otáèení podle smìru pohledu postavy
         if (mousePosition.x < screenPoint.x)

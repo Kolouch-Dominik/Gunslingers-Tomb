@@ -7,11 +7,10 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; set; }
     private float waitToLoad = 4;
-    [field: SerializeField]
-    public bool IsPaused { get; set; }
-
-    [field: SerializeField]
-    public int CurrentCoins { get; private set; }
+    [field: SerializeField] public bool IsPaused { get; set; }
+    [field: SerializeField] public int CurrentCoins { get; private set; }
+    [field: SerializeField] public string NextLevel { get; set; }
+    [field: SerializeField] public Transform StartPoint { get; set; }
 
 
     // Start is called before the first frame update
@@ -21,6 +20,11 @@ public class LevelManager : MonoBehaviour
     }
     void Start()
     {
+        PlayerController.Instance.transform.position = StartPoint.position;
+        PlayerController.Instance.CanMove = true;
+
+        CurrentCoins = CharacterTracker.Instance.CurrentCoins;
+
         Time.timeScale = 1f;
 
         UIController.Instance.CoinText.text = CurrentCoins.ToString();
@@ -33,7 +37,7 @@ public class LevelManager : MonoBehaviour
             PauseUnpause();
     }
 
-    public IEnumerator LevelEnd(string LevelToLoad)
+    public IEnumerator LevelEnd()
     {
         AudioManager.Instance.PlayWinMusic();
 
@@ -43,7 +47,11 @@ public class LevelManager : MonoBehaviour
 
         yield return new WaitForSeconds(waitToLoad);
 
-        SceneManager.LoadScene(LevelToLoad);
+        CharacterTracker.Instance.CurrentCoins = CurrentCoins;
+        CharacterTracker.Instance.MaxHealth = PlayerHealthController.Instance.MaxHealth;
+        CharacterTracker.Instance.CurrentHealth = PlayerHealthController.Instance.CurrentHealth;
+
+        SceneManager.LoadScene(NextLevel);
     }
 
     public void PauseUnpause()
@@ -75,7 +83,7 @@ public class LevelManager : MonoBehaviour
         CurrentCoins -= amount;
 
         if (CurrentCoins < 0)
-            CurrentCoins = 0; 
+            CurrentCoins = 0;
 
         UIController.Instance.CoinText.text = CurrentCoins.ToString();
     }
