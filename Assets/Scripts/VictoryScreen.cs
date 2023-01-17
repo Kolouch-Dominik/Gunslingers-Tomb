@@ -5,16 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class VictoryScreen : MonoBehaviour
 {
-    [field: SerializeField]
-    public float KeyWaitTime { get; set; } = 2f;
-    [field: SerializeField]
-    public GameObject AnyKeyText { get; set; }
-    [field: SerializeField]
-    public string MainMenu { get; set; }
+    [field: SerializeField] public float KeyWaitTime { get; set; } = 2f;
+    [field: SerializeField] public GameObject AnyKeyText { get; set; }
+    [field: SerializeField] public string MainMenu { get; set; }
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1f;
+
+        Destroy(PlayerController.Instance.gameObject);
     }
 
     // Update is called once per frame

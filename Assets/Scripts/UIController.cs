@@ -14,13 +14,20 @@ public class UIController : MonoBehaviour
     [field: SerializeField] public GameObject DeathScreen { get; set; }
     [field: SerializeField] public Image FadeScreen { get; set; }
     [field: SerializeField] public GameObject PauseMenu { get; set; }
+    [field: SerializeField] public GameObject MapDisplay { get; set; }
+    [field: SerializeField] public GameObject BigMapText { get; set; }
+
 
     private float fadeSpeed = 1f;
     private bool fadeToBlack, fadeOutBlack;
-    [field: SerializeField]
-    public string NewGameScene { get; set; }
-    [field: SerializeField]
-    public string MainMenuScene { get; set; }
+    [field: SerializeField] public string NewGameScene { get; set; }
+    [field: SerializeField] public string MainMenuScene { get; set; }
+    [field: SerializeField] public Image CurrentGun { get; set; }
+    [field: SerializeField] public Text GunText { get; set; }
+
+    [field: SerializeField] public Slider BossHealthBar { get; set; }
+
+
 
 
     private void Awake()
@@ -32,6 +39,9 @@ public class UIController : MonoBehaviour
     {
         fadeOutBlack = true;
         fadeToBlack = false;
+
+        CurrentGun.sprite = PlayerController.Instance.AvailableGuns[PlayerController.Instance.CurrentGunNum].GunUI;
+        GunText.text = PlayerController.Instance.AvailableGuns[PlayerController.Instance.CurrentGunNum].WeaponName;
     }
 
     // Update is called once per frame
@@ -63,6 +73,8 @@ public class UIController : MonoBehaviour
         Time.timeScale = 1f;
 
         SceneManager.LoadScene(NewGameScene);
+
+        Destroy(PlayerController.Instance.gameObject);
     }
 
     public void ReturnToMainMenu()
@@ -70,6 +82,8 @@ public class UIController : MonoBehaviour
         Time.timeScale = 1f;
 
         SceneManager.LoadScene(MainMenuScene);
+
+        Destroy(PlayerController.Instance.gameObject);
     }
 
     public void Resume()

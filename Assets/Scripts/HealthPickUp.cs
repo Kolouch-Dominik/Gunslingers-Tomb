@@ -5,15 +5,13 @@ using UnityEngine;
 
 public class HealthPickUp : MonoBehaviour
 {
-    [field: SerializeField]
-    public int HealthAmount { get; set; }
-    [field: SerializeField]
-    public float WaitToPickUp { get; set; }
+    [field: SerializeField] public int HealthAmount { get; set; }
+    [field: SerializeField] public float WaitToPickUp { get; set; }
 
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -30,7 +28,7 @@ public class HealthPickUp : MonoBehaviour
             Destroy(gameObject);
 
             PlayerHealthController.Instance.HealPlayer(HealthAmount);
-            
+
             AudioManager.Instance.PlaySFX(7);
         }
     }

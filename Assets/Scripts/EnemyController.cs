@@ -23,28 +23,23 @@ public class EnemyController : MonoBehaviour
     private float fireCounter;
     private Vector3 moveDirection;
 
-    [field: SerializeField, Header("Chase Player")]
-    public bool ShouldChasePlayer { get; set; }
+    [field: SerializeField, Header("Chase Player")] public bool ShouldChasePlayer { get; set; }
     [field: SerializeField] public float RangeToChase { get; set; }
 
-    [field: SerializeField, Header("Run away")]
-    public bool ShouldRunAway { get; set; }
+    [field: SerializeField, Header("Run away")] public bool ShouldRunAway { get; set; }
     [field: SerializeField] public float runawayRange { get; set; }
 
-    [field: SerializeField, Header("Wander")]
-    public bool ShouldWander { get; set; }
+    [field: SerializeField, Header("Wander")] public bool ShouldWander { get; set; }
     [field: SerializeField] public float WanderLenght { get; set; }
     [field: SerializeField] public float PauseLenght { get; set; }
     private float wanderCounter, pauseCounter;
     private Vector3 wanderDirection;
 
-    [field: SerializeField, Header("Patrol")]
-    public bool ShouldPatrol { get; set; }
+    [field: SerializeField, Header("Patrol")] public bool ShouldPatrol { get; set; }
     [field: SerializeField] public List<Transform> PatrolPoints { get; set; }
     private int currentPatrolPoint;
 
-    [field: SerializeField, Header("Drop")]
-    public bool ShouldDropItem { get; set; }
+    [field: SerializeField, Header("Drop")] public bool ShouldDropItem { get; set; }
     [field: SerializeField] public List<GameObject> ItemsToDrop { get; set; }
     [field: SerializeField] public float DropPercentage { get; set; }
 
@@ -52,9 +47,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         if (ShouldWander)
-        {
             pauseCounter = Random.Range(PauseLenght * 0.75f, PauseLenght * 1.25f);
-        }
     }
 
     // Update is called once per frame

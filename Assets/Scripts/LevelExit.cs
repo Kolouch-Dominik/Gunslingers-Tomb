@@ -21,7 +21,7 @@ public class LevelExit : MonoBehaviour
     {
         if (other.tag.Equals("Player"))
         {
-            StartCoroutine(LevelManager.Instance.LevelEnd(LevelToLoad));
+            StartCoroutine(LevelManager.Instance.LevelEnd());
         }
     }
 }

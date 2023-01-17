@@ -6,15 +6,10 @@ using UnityEngine;
 public class PlayerBullet : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float Speed { get; set; } = 7.5f;
-    [field: SerializeField]
-    public Rigidbody2D BulletRB { get; set; }
-
-    [field: SerializeField]
-    public GameObject ImpactEffect { get; set; }
-
-    [field: SerializeField]
-    public int BulletDamage { get; set; } = 50;
+    [field: SerializeField] public float Speed { get; set; }
+    [field: SerializeField] public Rigidbody2D BulletRB { get; set; }
+    [field: SerializeField] public GameObject ImpactEffect { get; set; }
+    [field: SerializeField] public int BulletDamage { get; set; }
     void Start()
     {
 
@@ -31,12 +26,19 @@ public class PlayerBullet : MonoBehaviour
         Instantiate(ImpactEffect, transform.position, transform.rotation);
         Destroy(gameObject);
         AudioManager.Instance.PlaySFX(4);
-        if (other.tag.Equals("Enemy"))
-            other.GetComponent<EnemyController>().DamageEnemy(BulletDamage);
+        if (other.tag.Equals("Enemy") || other.tag.Equals("Boss"))
+            if (other.GetComponent<EnemyController>() != null)
+                other.GetComponent<EnemyController>().DamageEnemy(BulletDamage);
+            else if (other.GetComponent<BossController>() != null)
+            {
+                other.GetComponent<BossController>().TakeDamage(BulletDamage);
+
+                Instantiate(BossController.Instance.HitEffect, transform.position, transform.rotation);
+            }
     }
 
-    private void OnBecameInvisible()
+    /*private void OnBecameInvisible()
     {
         Destroy(gameObject);
-    }
+    }*/
 }

@@ -6,14 +6,10 @@ public class PlayerHealthController : MonoBehaviour
 {
     public static PlayerHealthController Instance { get; set; }
 
-    [SerializeField]
-    public int CurrentHealth
-    {
-        get;
-        private set;
-    }
     [field: SerializeField]
-    public int MaxHealth { get; private set; }
+    public int CurrentHealth { get; set; }
+    [field: SerializeField]
+    public int MaxHealth { get; set; }
 
     public float InvincLenght { get; set; } = 1f;
     public float InvincCount { get; set; }
@@ -24,7 +20,8 @@ public class PlayerHealthController : MonoBehaviour
     }
     void Start()
     {
-        CurrentHealth = MaxHealth;
+        MaxHealth = CharacterTracker.Instance.MaxHealth;
+        CurrentHealth  = CharacterTracker.Instance.CurrentHealth;
 
         UIController.Instance.HealthSlider.maxValue = MaxHealth;
         UIController.Instance.HealthSlider.value = CurrentHealth;
@@ -89,6 +86,16 @@ public class PlayerHealthController : MonoBehaviour
             CurrentHealth = MaxHealth;
         else CurrentHealth += amount;
 
+        UIController.Instance.HealthSlider.value = CurrentHealth;
+        UIController.Instance.HealthText.text = CurrentHealth + " / " + MaxHealth;
+    }
+
+    public void IncreaseMaxHealth(int amount)
+    {
+        MaxHealth += amount;
+        CurrentHealth += amount;
+
+        UIController.Instance.HealthSlider.maxValue = MaxHealth;
         UIController.Instance.HealthSlider.value = CurrentHealth;
         UIController.Instance.HealthText.text = CurrentHealth + " / " + MaxHealth;
     }

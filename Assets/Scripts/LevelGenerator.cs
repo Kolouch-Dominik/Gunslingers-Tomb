@@ -7,43 +7,43 @@ using Random = UnityEngine.Random;
 
 public class LevelGenerator : MonoBehaviour
 {
-    [field: SerializeField]
-    public GameObject LayoutRoom { get; set; }
-    [field: SerializeField]
-    public Color StartColor { get; set; }
-    [field: SerializeField]
-    public Color EndColor { get; set; }
+    [field: SerializeField] public GameObject LayoutRoom { get; set; }
+    [field: SerializeField] public bool IncludeShop { get; set; }
+    [field: SerializeField] public int MinDistanceToShop { get; set; }
+    [field: SerializeField] public int MaxDistanceToShop { get; set; }
+    [field: SerializeField] public Color StartColor { get; set; }
+    [field: SerializeField] public Color EndColor { get; set; }
+    [field: SerializeField] public Color ShopColor { get; set; }
+    [field: SerializeField] public Color GunRoomColor { get; set; }
+    [field: SerializeField] public int DistanceToEnd { get; set; }
+    [field: SerializeField] public Transform GeneratorPoint { get; set; }
+    [field: SerializeField] public Direction SelectedDirection { get; set; }
 
-    [field: SerializeField]
-    public int DistanceToEnd { get; set; }
-    [field: SerializeField]
-    public Transform GeneratorPoint { get; set; }
+    [field: SerializeField] public bool IncludeGunRoom { get; set; }
+    [field: SerializeField] public int MinDistanceToGun { get; set; }
+    [field: SerializeField] public int MaxDistanceToGun { get; set; }
 
-    [field: SerializeField]
-    public Direction SelectedDirection { get; set; }
 
     public enum Direction { Up, Down, Left, Right }
 
     private float xRoomOffset = 18f, yRoomOffset = 10f;
 
     private GameObject EndRoom { get; set; }
+    private GameObject ShopRoom { get; set; }
+    private GameObject GunRoom { get; set; }
 
-    [field: SerializeField]
-    public LayerMask RoomLayerNumber { get; set; }
+    [field: SerializeField] public LayerMask RoomLayerNumber { get; set; }
 
     private List<GameObject> layoutRoomObjects = new List<GameObject>();
 
 
-    [field: SerializeField]
-    public RoomCenter CenterStart { get; set; }
-    [field: SerializeField]
-    public RoomCenter CenterEnd { get; set; }
-    [field: SerializeField]
-    public List<RoomCenter> PotentialCenters { get; set; }
-    [field: SerializeField]
-    public RoomPrefabs Rooms { get; set; }
-    [field: SerializeField]
-    public List<GameObject> GeneratedOutlines { get; set; } = new List<GameObject>();
+    [field: SerializeField] public RoomCenter CenterStart { get; set; }
+    [field: SerializeField] public RoomCenter CenterEnd { get; set; }
+    [field: SerializeField] public RoomCenter CenterShop { get; set; }
+    [field: SerializeField] public RoomCenter CenterGunRoom { get; set; }
+    [field: SerializeField] public List<RoomCenter> PotentialCenters { get; set; }
+    [field: SerializeField] public RoomPrefabs Rooms { get; set; }
+    [field: SerializeField] public List<GameObject> GeneratedOutlines { get; set; } = new List<GameObject>();
 
 
     void Start()
@@ -75,6 +75,25 @@ public class LevelGenerator : MonoBehaviour
             }
         }
 
+        if(IncludeShop)
+        {
+
+            int shopSelector = Random.Range(MinDistanceToShop, MaxDistanceToShop + 1);
+            ShopRoom = layoutRoomObjects[shopSelector];
+            layoutRoomObjects.RemoveAt(shopSelector);
+
+            ShopRoom.GetComponent<SpriteRenderer>().color = ShopColor;
+        }
+        if (IncludeGunRoom)
+        {
+
+            int grSelector = Random.Range(MinDistanceToGun, MaxDistanceToGun/* +1 - postupnì se snižuje poèet možných místnosti a zaène tam padat vyjímka*/);
+            GunRoom = layoutRoomObjects[grSelector];
+            layoutRoomObjects.RemoveAt(grSelector);
+
+            GunRoom.GetComponent<SpriteRenderer>().color = GunRoomColor;
+        }
+
         CreateRoomOutline(Vector3.zero);
         foreach (var room in layoutRoomObjects)
         {
@@ -82,6 +101,8 @@ public class LevelGenerator : MonoBehaviour
         }
         CreateRoomOutline(EndRoom.transform.position);
 
+        if (IncludeShop) CreateRoomOutline(ShopRoom.transform.position);
+        if (IncludeGunRoom) CreateRoomOutline(GunRoom.transform.position);
 
         foreach (var outline in GeneratedOutlines)
         {
@@ -100,6 +121,26 @@ public class LevelGenerator : MonoBehaviour
                 Instantiate(CenterEnd, outline.transform.position, transform.rotation).Room =
                     outline.GetComponent<Room>();
                 generateCenter = false;
+            }
+
+            if(IncludeShop)
+            {
+                if (outline.transform.position == ShopRoom.transform.position)
+                {
+                    Instantiate(CenterShop, outline.transform.position, transform.rotation).Room =
+                        outline.GetComponent<Room>();
+                    generateCenter = false;
+                }
+            }
+
+            if(IncludeGunRoom)
+            {
+                if (outline.transform.position == GunRoom.transform.position)
+                {
+                    Instantiate(CenterGunRoom, outline.transform.position, transform.rotation).Room =
+                        outline.GetComponent<Room>();
+                    generateCenter = false;
+                }
             }
 
             if (generateCenter)
@@ -175,7 +216,7 @@ public class LevelGenerator : MonoBehaviour
                 else if (roomBelow)
                     GeneratedOutlines.Add(Instantiate(Rooms.singleD, roomPosition, transform.rotation));
                 else if (roomLeft)
-                    GeneratedOutlines.Add(Instantiate(Rooms.singleL, roomPosition, transform.rotation)); 
+                    GeneratedOutlines.Add(Instantiate(Rooms.singleL, roomPosition, transform.rotation));
                 else
                     GeneratedOutlines.Add(Instantiate(Rooms.singleR, roomPosition, transform.rotation));
                 break;
@@ -202,7 +243,7 @@ public class LevelGenerator : MonoBehaviour
                     GeneratedOutlines.Add(Instantiate(Rooms.tripleLUD, roomPosition, transform.rotation));
                 else if (roomLeft && roomAbove && roomRight)
                     GeneratedOutlines.Add(Instantiate(Rooms.tripleLUR, roomPosition, transform.rotation));
-                else 
+                else
                     GeneratedOutlines.Add(Instantiate(Rooms.tripleURD, roomPosition, transform.rotation));
                 break;
 
