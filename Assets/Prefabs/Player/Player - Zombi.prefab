@@ -310,7 +310,7 @@ MonoBehaviour:
   <TheRB>k__BackingField: {fileID: 3778564737546248784}
   <GunArm>k__BackingField: {fileID: 3778564736298515743}
   <Body>k__BackingField: {fileID: 3778564737602935448}
-  <DashSpeed>k__BackingField: 10
+  <DashSpeed>k__BackingField: 7.5
   <DashLenght>k__BackingField: 0.5
   <DashCooldown>k__BackingField: 1
   <DashInvincibility>k__BackingField: 0.5

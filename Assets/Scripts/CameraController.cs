@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour
     [field: SerializeField] public Transform Target { get; set; }
     [field: SerializeField] public Camera MainCamera { get; set; }
     [field: SerializeField] public Camera BigMapCamera { get; set; }
+    [field: SerializeField] public bool IsBossRoom { get; set; }
 
     private bool bigMapActive;
 
@@ -21,7 +22,10 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-
+        if(IsBossRoom)
+        {
+            Target = PlayerController.Instance.transform;
+        }
     }
 
     // Update is called once per frame
@@ -31,7 +35,7 @@ public class CameraController : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position,
             new Vector3(Target.position.x, Target.position.y, transform.position.z), MoveSpeed * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) && !IsBossRoom)
             if (!bigMapActive) ActivateBigMap();
             else DeactivateBigMap();
 

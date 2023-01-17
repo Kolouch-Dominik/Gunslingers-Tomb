@@ -26,12 +26,19 @@ public class PlayerBullet : MonoBehaviour
         Instantiate(ImpactEffect, transform.position, transform.rotation);
         Destroy(gameObject);
         AudioManager.Instance.PlaySFX(4);
-        if (other.tag.Equals("Enemy"))
-            other.GetComponent<EnemyController>().DamageEnemy(BulletDamage);
+        if (other.tag.Equals("Enemy") || other.tag.Equals("Boss"))
+            if (other.GetComponent<EnemyController>() != null)
+                other.GetComponent<EnemyController>().DamageEnemy(BulletDamage);
+            else if (other.GetComponent<BossController>() != null)
+            {
+                other.GetComponent<BossController>().TakeDamage(BulletDamage);
+
+                Instantiate(BossController.Instance.HitEffect, transform.position, transform.rotation);
+            }
     }
 
-    private void OnBecameInvisible()
+    /*private void OnBecameInvisible()
     {
         Destroy(gameObject);
-    }
+    }*/
 }

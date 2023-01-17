@@ -7,11 +7,20 @@ public class CharacterSelector : MonoBehaviour
     private bool canSelect;
 
     [field: SerializeField] public GameObject Message { get; set; }
-    [field: SerializeField] public PlayerController playerToSpawn { get; set; }
+    [field: SerializeField] public PlayerController PlayerToSpawn { get; set; }
+    [field: SerializeField] public bool CanUnlock { get; set; }
 
     // Start is called before the first frame update
     void Start()
     {
+        if (!CanUnlock) return;
+
+        if (PlayerPrefs.HasKey(PlayerToSpawn.name))
+            if (PlayerPrefs.GetInt(PlayerToSpawn.name) == 1)
+                gameObject.SetActive(true);
+            else gameObject.SetActive(false);
+        else gameObject.SetActive(false);
+
 
     }
 
@@ -24,7 +33,7 @@ public class CharacterSelector : MonoBehaviour
 
             Destroy(PlayerController.Instance.gameObject);
 
-            PlayerController newPlayer = Instantiate(playerToSpawn, playerPos, playerToSpawn.transform.rotation);
+            PlayerController newPlayer = Instantiate(PlayerToSpawn, playerPos, PlayerToSpawn.transform.rotation);
             PlayerController.Instance = newPlayer;
 
             gameObject.SetActive(false);

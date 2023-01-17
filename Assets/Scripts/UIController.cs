@@ -25,6 +25,8 @@ public class UIController : MonoBehaviour
     [field: SerializeField] public Image CurrentGun { get; set; }
     [field: SerializeField] public Text GunText { get; set; }
 
+    [field: SerializeField] public Slider BossHealthBar { get; set; }
+
 
 
 
@@ -71,6 +73,8 @@ public class UIController : MonoBehaviour
         Time.timeScale = 1f;
 
         SceneManager.LoadScene(NewGameScene);
+
+        Destroy(PlayerController.Instance.gameObject);
     }
 
     public void ReturnToMainMenu()
@@ -78,6 +82,8 @@ public class UIController : MonoBehaviour
         Time.timeScale = 1f;
 
         SceneManager.LoadScene(MainMenuScene);
+
+        Destroy(PlayerController.Instance.gameObject);
     }
 
     public void Resume()

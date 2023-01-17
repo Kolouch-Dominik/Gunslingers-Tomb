@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8254343587555921701
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 265405339738176285, guid: 661441d4104de134f82893302d853147, type: 3}
+      propertyPath: m_Text
+      value: Freeze
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882084540728106275, guid: 661441d4104de134f82893302d853147, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1405801925, guid: a47294d8f066c634d90ee371916313ff, type: 3}
+    - target: {fileID: 6109130270622616701, guid: 661441d4104de134f82893302d853147, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109130270622616701, guid: 661441d4104de134f82893302d853147, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109130270622616701, guid: 661441d4104de134f82893302d853147, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109130270622616701, guid: 661441d4104de134f82893302d853147, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109130270622616701, guid: 661441d4104de134f82893302d853147, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109130270622616701, guid: 661441d4104de134f82893302d853147, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109130270622616701, guid: 661441d4104de134f82893302d853147, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109130270622616701, guid: 661441d4104de134f82893302d853147, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109130270622616701, guid: 661441d4104de134f82893302d853147, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109130270622616701, guid: 661441d4104de134f82893302d853147, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109130270622616701, guid: 661441d4104de134f82893302d853147, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289132344435270011, guid: 661441d4104de134f82893302d853147, type: 3}
+      propertyPath: m_Name
+      value: Characters Select - Freeze
+      objectReference: {fileID: 0}
+    - target: {fileID: 8612972243038272354, guid: 661441d4104de134f82893302d853147, type: 3}
+      propertyPath: <PlayerToSpawn>k__BackingField
+      value: 
+      objectReference: {fileID: 8705497923991876549, guid: 8c245f0dfc80eac459d731f3528d893d, type: 3}
+    - target: {fileID: 8612972243038272354, guid: 661441d4104de134f82893302d853147, type: 3}
+      propertyPath: <playerToSpawn>k__BackingField
+      value: 
+      objectReference: {fileID: 8705497923991876549, guid: 8c245f0dfc80eac459d731f3528d893d, type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 661441d4104de134f82893302d853147, type: 3}

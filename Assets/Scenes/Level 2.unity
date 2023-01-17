@@ -296,6 +296,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
+      propertyPath: <CenterEnd>k__BackingField
+      value: 
+      objectReference: {fileID: 3768766479179817493, guid: d78d8a4620bd1ca47b2b4eb184028cf6, type: 3}
+    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
       propertyPath: <CenterShop>k__BackingField
       value: 
       objectReference: {fileID: 6838780300520925482, guid: 953787327bafa6e43ac1a93c925bff6c, type: 3}

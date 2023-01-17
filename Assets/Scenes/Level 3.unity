@@ -257,6 +257,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   <MainCamera>k__BackingField: {fileID: 519420031}
   <BigMapCamera>k__BackingField: {fileID: 1993141476}
+  <IsBossRoom>k__BackingField: 0
 --- !u!1 &547718506
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,7 +756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4404985639619944707, guid: 8dc27d4210a561147817ca51d843d049, type: 3}
       propertyPath: <NextLevel>k__BackingField
-      value: Victory
+      value: Boss 1
       objectReference: {fileID: 0}
     - target: {fileID: 4404985639619944711, guid: 8dc27d4210a561147817ca51d843d049, type: 3}
       propertyPath: m_Name
