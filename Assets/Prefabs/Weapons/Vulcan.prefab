@@ -102,7 +102,7 @@ MonoBehaviour:
   <FirePoint>k__BackingField: {fileID: 8721565094534128509}
   <TimeBetweenShots>k__BackingField: 0.1
   <WeaponName>k__BackingField: Vulcan
-  <GunUI>k__BackingField: {fileID: -3940896912681915257, guid: f72804754a2106a4884d758772ef2a02, type: 3}
+  <GunUI>k__BackingField: {fileID: -2480382951315576201, guid: f72804754a2106a4884d758772ef2a02, type: 3}
   <ItemCost>k__BackingField: 25
   <GunShopSprite>k__BackingField: {fileID: 6549473840129656578, guid: 48d85d1ef51430e42b6aef57f02c863d, type: 3}
 --- !u!1 &6662894879736835542
