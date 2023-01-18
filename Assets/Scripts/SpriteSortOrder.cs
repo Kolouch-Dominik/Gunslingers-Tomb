@@ -12,10 +12,4 @@ public class SpriteSortOrder : MonoBehaviour
 
         sprite.sortingOrder = Mathf.RoundToInt(transform.position.y * -10f); //násobení urèuje pøesnost poøadí vykreslování. 10 postaèí
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

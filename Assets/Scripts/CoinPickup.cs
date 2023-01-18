@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class CoinPickup : MonoBehaviour
 {
-    [field:SerializeField]
-    public int CoinValue { get; private set; } = 1;
-    [field: SerializeField]
-    public float WaitToPickUp { get; set; }
+    [field: SerializeField] public int CoinValue { get; private set; } = 1;
+    [field: SerializeField] public float WaitToPickUp { get; set; }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame

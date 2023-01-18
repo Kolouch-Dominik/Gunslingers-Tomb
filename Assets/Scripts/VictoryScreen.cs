@@ -22,11 +22,12 @@ public class VictoryScreen : MonoBehaviour
         if (KeyWaitTime > 0f)
         {
             KeyWaitTime -= Time.deltaTime;
-            if(KeyWaitTime <= 0f)
+            if (KeyWaitTime <= 0f)
             {
                 AnyKeyText.SetActive(true);
             }
-        } else
+        }
+        else
         {
             if (Input.anyKeyDown)
                 SceneManager.LoadScene(MainMenu);

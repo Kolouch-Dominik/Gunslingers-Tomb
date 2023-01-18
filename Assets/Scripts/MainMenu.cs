@@ -9,21 +9,6 @@ public class MainMenu : MonoBehaviour
     [field: SerializeField] public GameObject DeletePanel { get; set; }
     [field: SerializeField] public List<CharacterSelector> CharToDelete { get; set; }
 
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void StartGame()
     {
         SceneManager.LoadScene(LevelToLoad);
@@ -33,7 +18,7 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
-    
+
     public void DeleteSave()
     {
         DeletePanel.SetActive(true);

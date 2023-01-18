@@ -13,11 +13,6 @@ public class Room : MonoBehaviour
 
     public bool IsActive { get; private set; }
 
-    void Update()
-    {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
@@ -30,10 +25,10 @@ public class Room : MonoBehaviour
                 {
                     door.SetActive(true);
                 }
-            } 
+            }
             IsActive = true;
 
-            MapHider.SetActive(false); 
+            MapHider.SetActive(false);
         }
     }
 

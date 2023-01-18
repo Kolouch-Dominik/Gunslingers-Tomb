@@ -8,12 +8,6 @@ public class HealthPickUp : MonoBehaviour
     [field: SerializeField] public int HealthAmount { get; set; }
     [field: SerializeField] public float WaitToPickUp { get; set; }
 
-
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {

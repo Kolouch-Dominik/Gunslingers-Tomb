@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class BrokenPieces : MonoBehaviour
 {
-    [field: SerializeField]
-    public float Speed { get; set; } = 1f;
-    [field: SerializeField]
-    public float Deceleration { get; set; } = 5f;
-    [field: SerializeField]
-    public SpriteRenderer Sprite { get; set; }
+    [field: SerializeField] public float Speed { get; set; } = 1f;
+    [field: SerializeField] public float Deceleration { get; set; } = 5f;
+    [field: SerializeField] public SpriteRenderer Sprite { get; set; }
 
 
     private Vector3 moveDirection;
@@ -22,7 +19,7 @@ public class BrokenPieces : MonoBehaviour
         moveDirection.x = Random.Range(-Speed, Speed);
         moveDirection.y = Random.Range(-Speed, Speed);
     }
-     
+
     // Update is called once per frame
     void Update()
     {

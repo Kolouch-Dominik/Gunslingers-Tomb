@@ -257,6 +257,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 0}
   <MainCamera>k__BackingField: {fileID: 519420031}
   <BigMapCamera>k__BackingField: {fileID: 1993141476}
+  <IsBossRoom>k__BackingField: 0
 --- !u!1 &547718506
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,98 +296,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
-      propertyPath: <CenterShop>k__BackingField
-      value: 
-      objectReference: {fileID: 6838780300520925482, guid: 953787327bafa6e43ac1a93c925bff6c, type: 3}
-    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
-      propertyPath: <IncludeShop>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
-      propertyPath: <ShopColor>k__BackingField.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
-      propertyPath: <ShopColor>k__BackingField.b
-      value: 0.0047169924
-      objectReference: {fileID: 0}
-    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
-      propertyPath: <ShopColor>k__BackingField.g
-      value: 0.8153452
-      objectReference: {fileID: 0}
-    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
-      propertyPath: <ShopColor>k__BackingField.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
-      propertyPath: <CenterGunRoom>k__BackingField
-      value: 
-      objectReference: {fileID: 3917349768628772436, guid: 8002bfb40c92d9f45a5c89cd550bdedd, type: 3}
-    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
-      propertyPath: <DistanceToEnd>k__BackingField
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
-      propertyPath: <GunRoomColor>k__BackingField.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
-      propertyPath: <GunRoomColor>k__BackingField.b
-      value: 0.3584906
-      objectReference: {fileID: 0}
-    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
-      propertyPath: <GunRoomColor>k__BackingField.g
-      value: 0.3584906
-      objectReference: {fileID: 0}
-    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
-      propertyPath: <GunRoomColor>k__BackingField.r
-      value: 0.3584906
-      objectReference: {fileID: 0}
-    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
-      propertyPath: <IncludeGunRoom>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
-      propertyPath: <MaxDistanceToGun>k__BackingField
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
-      propertyPath: <MinDistanceToGun>k__BackingField
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
-      propertyPath: <MaxDistanceToShop>k__BackingField
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
-      propertyPath: <MinDistanceToShop>k__BackingField
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
-      propertyPath: <PotentialCenters>k__BackingField.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
-      propertyPath: <PotentialCenters>k__BackingField.Array.data[2]
-      value: 
-      objectReference: {fileID: 5588667706776861444, guid: f2c76763c952b844cab60f943963bcde, type: 3}
-    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
-      propertyPath: <PotentialCenters>k__BackingField.Array.data[3]
-      value: 
-      objectReference: {fileID: 2754489566827520104, guid: 82c55b189b7e3344eb683c8f6d9d6d90, type: 3}
-    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
-      propertyPath: <PotentialCenters>k__BackingField.Array.data[4]
-      value: 
-      objectReference: {fileID: 4582429828357447348, guid: e883d8cb6a18f664ea6dfa1116251cc0, type: 3}
-    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
-      propertyPath: <PotentialCenters>k__BackingField.Array.data[5]
-      value: 
-      objectReference: {fileID: 7149011178147731406, guid: 4e044a9534d01b749836a3fbda096620, type: 3}
-    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
-      propertyPath: <PotentialCenters>k__BackingField.Array.data[6]
-      value: 
-      objectReference: {fileID: 4235901681379708842, guid: d5c33408bd7c8fa45abba623017de396, type: 3}
     - target: {fileID: 3751573637258260389, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
       propertyPath: m_RootOrder
       value: 3
