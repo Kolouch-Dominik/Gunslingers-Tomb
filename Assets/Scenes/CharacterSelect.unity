@@ -332,6 +332,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3768766479179817493, guid: d78d8a4620bd1ca47b2b4eb184028cf6, type: 3}
+      propertyPath: Room
+      value: 
+      objectReference: {fileID: 6752019850698521593, guid: 4cebc6b6305756a4ba58e2342a7849f6, type: 3}
     - target: {fileID: 3856191535413417030, guid: d78d8a4620bd1ca47b2b4eb184028cf6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.69
@@ -578,7 +582,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 862304561}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &862304564
 Camera:
   m_ObjectHideFlags: 0
@@ -7326,7 +7330,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993141473}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1993141476
 Camera:
   m_ObjectHideFlags: 0
