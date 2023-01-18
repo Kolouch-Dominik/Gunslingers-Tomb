@@ -125,4 +125,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <TheGun>k__BackingField: {fileID: 6015770636372165260, guid: 434dd94804594054f90f3bc8ac15bd03, type: 3}
-  <WaitToPickUp>k__BackingField: 0
+  <WaitToPickUp>k__BackingField: 1

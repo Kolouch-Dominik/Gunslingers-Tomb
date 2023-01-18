@@ -10,10 +10,6 @@ public class PlayerBullet : MonoBehaviour
     [field: SerializeField] public Rigidbody2D BulletRB { get; set; }
     [field: SerializeField] public GameObject ImpactEffect { get; set; }
     [field: SerializeField] public int BulletDamage { get; set; }
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()

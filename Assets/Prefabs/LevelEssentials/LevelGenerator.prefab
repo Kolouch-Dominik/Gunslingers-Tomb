@@ -46,19 +46,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <LayoutRoom>k__BackingField: {fileID: 5765540595599921833, guid: 703a9d9eeae95a249af197fb86531df0, type: 3}
+  <IncludeShop>k__BackingField: 1
+  <MinDistanceToShop>k__BackingField: 3
+  <MaxDistanceToShop>k__BackingField: 7
   <StartColor>k__BackingField: {r: 0, g: 0.90337855, b: 0.9622642, a: 1}
   <EndColor>k__BackingField: {r: 0.4528302, g: 0, b: 0, a: 1}
+  <ShopColor>k__BackingField: {r: 1, g: 0.8153452, b: 0.0047169924, a: 1}
+  <GunRoomColor>k__BackingField: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
   <DistanceToEnd>k__BackingField: 10
   <GeneratorPoint>k__BackingField: {fileID: 3751573637904237180}
   <SelectedDirection>k__BackingField: 0
+  <IncludeGunRoom>k__BackingField: 1
+  <MinDistanceToGun>k__BackingField: 5
+  <MaxDistanceToGun>k__BackingField: 8
   <RoomLayerNumber>k__BackingField:
     serializedVersion: 2
     m_Bits: 32768
   <CenterStart>k__BackingField: {fileID: 7915800219551614228, guid: 0b9e2336dc4d5a14d90ae96a2c4d7b54, type: 3}
   <CenterEnd>k__BackingField: {fileID: 2697072314631729233, guid: f1d12f55425074b45847b5d2f3e0560a, type: 3}
+  <CenterShop>k__BackingField: {fileID: 6838780300520925482, guid: 953787327bafa6e43ac1a93c925bff6c, type: 3}
+  <CenterGunRoom>k__BackingField: {fileID: 3917349768628772436, guid: 8002bfb40c92d9f45a5c89cd550bdedd, type: 3}
   <PotentialCenters>k__BackingField:
   - {fileID: 7290773305624740389, guid: 0304242e9667e254297057b25e9f25f2, type: 3}
-  - {fileID: 7915800219551614228, guid: 0b9e2336dc4d5a14d90ae96a2c4d7b54, type: 3}
+  - {fileID: 5588667706776861444, guid: f2c76763c952b844cab60f943963bcde, type: 3}
+  - {fileID: 2754489566827520104, guid: 82c55b189b7e3344eb683c8f6d9d6d90, type: 3}
+  - {fileID: 4582429828357447348, guid: e883d8cb6a18f664ea6dfa1116251cc0, type: 3}
+  - {fileID: 7149011178147731406, guid: 4e044a9534d01b749836a3fbda096620, type: 3}
+  - {fileID: 4235901681379708842, guid: d5c33408bd7c8fa45abba623017de396, type: 3}
+  - {fileID: 4563830555202760115, guid: 7285de86790170d46aea6f3684512da6, type: 3}
+  - {fileID: 1167606862586824713, guid: 5ee9ad1c1e4df004ea800f8e8c6413e7, type: 3}
   <Rooms>k__BackingField:
     singleU: {fileID: 6774614708350161096, guid: 15162a71a7103844f86e1ea7f3d94801, type: 3}
     singleD: {fileID: 2141069969978376565, guid: ab035e3b060af1b48ad0c6493f4a0924, type: 3}

@@ -6,11 +6,9 @@ public class RoomCenter : MonoBehaviour
 {
     public bool openWhenEnemiesClear;
 
-    [field: SerializeField]
-    public List<GameObject> Enemies { get; set; } = new List<GameObject>();
+    [field: SerializeField] public List<GameObject> Enemies { get; set; } = new List<GameObject>();
 
-    [field: SerializeField]
-    public Room Room;
+    [field: SerializeField] public Room Room;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +34,7 @@ public class RoomCenter : MonoBehaviour
             }
 
             if (Enemies.Count == 0)
-            { 
+            {
                 Room.OpenDoors();
             }
         }

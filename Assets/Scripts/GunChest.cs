@@ -12,11 +12,6 @@ public class GunChest : MonoBehaviour
     private bool canOpen;
     private bool isOpened = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()

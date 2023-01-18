@@ -1417,7 +1417,7 @@ MonoBehaviour:
   <PauseMenu>k__BackingField: {fileID: 853642451}
   <MapDisplay>k__BackingField: {fileID: 470423021}
   <BigMapText>k__BackingField: {fileID: 608096661994205646}
-  <NewGameScene>k__BackingField: MainScene
+  <NewGameScene>k__BackingField: CharacterSelect
   <MainMenuScene>k__BackingField: TitleMenu
   <CurrentGun>k__BackingField: {fileID: 5223514270382606276}
   <GunText>k__BackingField: {fileID: 314019478}

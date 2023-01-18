@@ -4,28 +4,11 @@ using UnityEngine;
 
 public class Breakable : MonoBehaviour
 {
-    [field: SerializeField]
-    public List<GameObject> Breakables { get; set; }
-    [field: SerializeField]
-    public int MaxPieces { get; set; }
-
-    [field:SerializeField]
-    public bool ShouldDropItem { get; set; }
-    [field: SerializeField] 
-    public List<GameObject> ItemsToDrop { get; set; }
-    [field: SerializeField]
-    public float DropPercentage { get; set; }
-
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    [field: SerializeField] public List<GameObject> Breakables { get; set; }
+    [field: SerializeField] public int MaxPieces { get; set; }
+    [field: SerializeField] public bool ShouldDropItem { get; set; }
+    [field: SerializeField] public List<GameObject> ItemsToDrop { get; set; }
+    [field: SerializeField] public float DropPercentage { get; set; }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -36,7 +19,7 @@ public class Breakable : MonoBehaviour
                 DestroyBreakable();
             }
         }
-        else if(other.tag.Equals("PlayerBullet"))
+        else if (other.tag.Equals("PlayerBullet"))
             DestroyBreakable();
     }
 

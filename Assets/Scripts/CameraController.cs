@@ -22,7 +22,7 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        if(IsBossRoom)
+        if (IsBossRoom)
         {
             Target = PlayerController.Instance.transform;
         }

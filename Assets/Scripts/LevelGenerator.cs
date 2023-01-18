@@ -75,7 +75,7 @@ public class LevelGenerator : MonoBehaviour
             }
         }
 
-        if(IncludeShop)
+        if (IncludeShop)
         {
 
             int shopSelector = Random.Range(MinDistanceToShop, MaxDistanceToShop + 1);
@@ -123,7 +123,7 @@ public class LevelGenerator : MonoBehaviour
                 generateCenter = false;
             }
 
-            if(IncludeShop)
+            if (IncludeShop)
             {
                 if (outline.transform.position == ShopRoom.transform.position)
                 {
@@ -133,7 +133,7 @@ public class LevelGenerator : MonoBehaviour
                 }
             }
 
-            if(IncludeGunRoom)
+            if (IncludeGunRoom)
             {
                 if (outline.transform.position == GunRoom.transform.position)
                 {

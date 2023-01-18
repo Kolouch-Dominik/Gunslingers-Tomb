@@ -26,7 +26,7 @@ public class CharacterUnlockCage : MonoBehaviour
         {
             PlayerPrefs.SetInt(playerToUnlock.PlayerToSpawn.name, 1);
 
-            Instantiate(playerToUnlock, transform.position, transform.rotation);
+            //Instantiate(playerToUnlock, transform.position, transform.rotation);
 
             gameObject.SetActive(false);
         }
