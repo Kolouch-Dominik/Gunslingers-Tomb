@@ -72,6 +72,7 @@ public class PlayerHealthController : MonoBehaviour
     {
         var color = PlayerController.Instance.Body.color;
         PlayerController.Instance.Body.color = new Color(color.r, color.g, color.b, alpha);
+
     }
 
     public void MakePlayerInvincible(float lenght)

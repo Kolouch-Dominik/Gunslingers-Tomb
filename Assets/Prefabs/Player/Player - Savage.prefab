@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e5779b8d7440a4aa01126ea292e772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MoveSpeed>k__BackingField: 3
+  <MoveSpeed>k__BackingField: 4.5
   <Anim>k__BackingField: {fileID: 3886861333112889754}
   <TheRB>k__BackingField: {fileID: 3886861333112889828}
   <GunArm>k__BackingField: {fileID: 3886861331961495211}
