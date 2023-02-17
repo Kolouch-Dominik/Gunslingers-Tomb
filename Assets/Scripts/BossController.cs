@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BossController : MonoBehaviour
@@ -12,14 +10,17 @@ public class BossController : MonoBehaviour
     [field: SerializeField] public GameObject DeathEffect { get; set; }
     [field: SerializeField] public GameObject HitEffect { get; set; }
     [field: SerializeField] public GameObject LevelExit { get; set; }
+    [field: SerializeField] public Transform EnemySpawns { get; set; }
     [field: SerializeField] public List<BossSequence> Sequences { get; set; }
+    
     private int currentSequence;
     private Vector3 moveDirection;
 
     private int currentAction;
-    private float actionCounter;
 
+    private float actionCounter;
     private float shotCounter;
+    private float spawnCounter;
 
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class BossController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Sequences[currentSequence].TimeBetweenSpawns = 20f;
         Actions = Sequences[currentSequence].Actions;
 
         actionCounter = Actions[currentAction].ActionLenght;
@@ -62,6 +64,25 @@ public class BossController : MonoBehaviour
 
             moveDirection.Normalize();
             BossBody.velocity = moveDirection * Actions[currentAction].Speed;
+
+            if (Sequences[currentSequence].ShouldSpawnMinions)
+            {
+                spawnCounter -= Time.deltaTime;
+                if (spawnCounter <= 0)
+                {
+                    spawnCounter = Sequences[currentSequence].TimeBetweenSpawns;
+                    for (int i = 0; i < Sequences[currentSequence].StartNumberOfSpawns; i++)
+                    {
+                        var position = gameObject.transform.position;
+                        position.x += Random.Range(-1, 2) * 2;
+                        position.y += Random.Range(-1, 2) * 2;
+
+                        var enemy = Instantiate(Sequences[currentSequence].Enemy, position, transform.rotation);
+                        enemy.transform.parent = EnemySpawns;
+                    }
+                    Sequences[currentSequence].StartNumberOfSpawns++;
+                }
+            }
 
             if (Actions[currentAction].ShouldShoot)
             {
@@ -104,6 +125,7 @@ public class BossController : MonoBehaviour
             LevelExit.SetActive(true);
 
             UIController.Instance.BossHealthBar.gameObject.SetActive(false);
+
         }
         else if (Health <= Sequences[currentSequence].EndSequenceHealth && currentSequence < Sequences.Count - 1)
         {
@@ -132,6 +154,7 @@ public class BossAction
     [field: SerializeField] public float TimeBetweenShots { get; set; }
     [field: SerializeField] public List<Transform> ShotPoints { get; set; }
     [field: SerializeField] public GameObject ShotPointsCenter { get; set; }
+    
 }
 
 [System.Serializable]
@@ -139,4 +162,8 @@ public class BossSequence
 {
     [field: SerializeField, Header("Sequence")] public List<BossAction> Actions { get; set; }
     [field: SerializeField] public int EndSequenceHealth { get; set; }
+    [field: SerializeField, Header("Minions")] public bool ShouldSpawnMinions { get; set; }
+    [field: SerializeField] public float TimeBetweenSpawns { get; set; }
+    [field: SerializeField] public GameObject Enemy { get; set; }
+    [field: SerializeField] public int StartNumberOfSpawns { get; set; }
 }

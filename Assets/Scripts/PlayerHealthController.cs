@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealthController : MonoBehaviour
@@ -21,7 +19,7 @@ public class PlayerHealthController : MonoBehaviour
     void Start()
     {
         MaxHealth = CharacterTracker.Instance.MaxHealth;
-        CurrentHealth  = CharacterTracker.Instance.CurrentHealth;
+        CurrentHealth = CharacterTracker.Instance.CurrentHealth;
 
         UIController.Instance.HealthSlider.maxValue = MaxHealth;
         UIController.Instance.HealthSlider.value = CurrentHealth;

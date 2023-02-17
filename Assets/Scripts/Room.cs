@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Room : MonoBehaviour
@@ -25,7 +23,7 @@ public class Room : MonoBehaviour
         {
             ShouldFreeze = true;
             CameraController.Instance.SetTarget(transform);
-           
+
             if (doorsCloseOnEnter)
             {
                 foreach (var door in Doors)

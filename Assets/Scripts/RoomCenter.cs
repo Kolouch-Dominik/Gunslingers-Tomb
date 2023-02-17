@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,7 +22,11 @@ public class RoomCenter : MonoBehaviour
     {
         if (Room.ShouldFreeze)
         {
-            Enemies.ForEach(e => e.gameObject.GetComponent<EnemyController>().IsFreezed = true);
+            Enemies.ForEach(e =>
+            {
+                if (e != null)
+                    e.GetComponent<EnemyController>().IsFreezed = true;
+            });
             Room.ShouldFreeze = false;
         }
         if (Enemies.Count > 0 && Room.IsActive && openWhenEnemiesClear)

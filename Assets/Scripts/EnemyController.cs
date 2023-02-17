@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +18,7 @@ public class EnemyController : MonoBehaviour
     [field: SerializeField] public float FireRate { get; set; }
     [field: SerializeField] public SpriteRenderer Body { get; set; }
     [field: SerializeField] public float ShootRange { get; set; }
+    [field: SerializeField] public bool CanChasePlayerOutsideOfScreen { get; set; }
 
     private float fireCounter;
     private Vector3 moveDirection;
@@ -59,9 +59,9 @@ public class EnemyController : MonoBehaviour
         {
             freezeTime -= Time.deltaTime;
             return;
-        } 
+        }
 
-        if (Body.isVisible && PlayerController.Instance.gameObject.activeInHierarchy)
+        if ((Body.isVisible && PlayerController.Instance.gameObject.activeInHierarchy) || CanChasePlayerOutsideOfScreen)
         {
             moveDirection = Vector3.zero;
 
