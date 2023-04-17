@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: <CenterEnd>k__BackingField
       value: 
       objectReference: {fileID: 3768766479179817493, guid: d78d8a4620bd1ca47b2b4eb184028cf6, type: 3}
+    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
+      propertyPath: <PotentialCenters>k__BackingField.Array.size
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3751573637258260389, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
       propertyPath: m_RootOrder
       value: 0

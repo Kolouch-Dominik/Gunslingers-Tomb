@@ -74,7 +74,6 @@ MonoBehaviour:
   - {fileID: 7149011178147731406, guid: 4e044a9534d01b749836a3fbda096620, type: 3}
   - {fileID: 4235901681379708842, guid: d5c33408bd7c8fa45abba623017de396, type: 3}
   - {fileID: 4563830555202760115, guid: 7285de86790170d46aea6f3684512da6, type: 3}
-  - {fileID: 1167606862586824713, guid: 5ee9ad1c1e4df004ea800f8e8c6413e7, type: 3}
   <Rooms>k__BackingField:
     singleU: {fileID: 6774614708350161096, guid: 15162a71a7103844f86e1ea7f3d94801, type: 3}
     singleD: {fileID: 2141069969978376565, guid: ab035e3b060af1b48ad0c6493f4a0924, type: 3}
