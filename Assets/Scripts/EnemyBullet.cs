@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
@@ -27,9 +24,17 @@ public class EnemyBullet : MonoBehaviour
         if (other.tag == "Player")
         {
             PlayerHealthController.Instance.DamagePlayer();
+            if (PlayerHealthController.Instance.InvincCount <= 0)
+            {
+                Destroy(gameObject);
+                AudioManager.Instance.PlaySFX(4);
+            }
         }
-        Destroy(gameObject);
-        AudioManager.Instance.PlaySFX(4);
+        else
+        {
+            Destroy(gameObject);
+            AudioManager.Instance.PlaySFX(4);
+        }
     }
 
     private void OnBecameInvisible()

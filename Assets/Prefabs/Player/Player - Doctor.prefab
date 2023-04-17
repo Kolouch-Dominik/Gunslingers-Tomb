@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e5779b8d7440a4aa01126ea292e772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MoveSpeed>k__BackingField: 3
+  <MoveSpeed>k__BackingField: 4.5
   <Anim>k__BackingField: {fileID: 875350693624542285}
   <TheRB>k__BackingField: {fileID: 875350693624542259}
   <GunArm>k__BackingField: {fileID: 875350692473138044}
@@ -231,7 +231,7 @@ MonoBehaviour:
   <DashCooldown>k__BackingField: 1
   <DashInvincibility>k__BackingField: 0.5
   <AvailableGuns>k__BackingField:
-  - {fileID: 0}
+  - {fileID: 7011208586353849863, guid: 50c8e7ffe41930949a5aefa3ec30892d, type: 3}
 --- !u!50 &875350693624542259
 Rigidbody2D:
   serializedVersion: 4

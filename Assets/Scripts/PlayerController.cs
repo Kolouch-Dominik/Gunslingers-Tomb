@@ -1,8 +1,5 @@
-using System;
-using Unity.Mathematics;
-using Unity.VisualScripting;
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -43,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        
+
 
         ActiveMoveSpeed = MoveSpeed;
 

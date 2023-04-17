@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpriteSortOrder : MonoBehaviour
 {
     private SpriteRenderer sprite;
-    
+
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();

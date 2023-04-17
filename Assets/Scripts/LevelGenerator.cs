@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class LevelGenerator : MonoBehaviour
@@ -87,7 +85,7 @@ public class LevelGenerator : MonoBehaviour
         if (IncludeGunRoom)
         {
 
-            int grSelector = Random.Range(MinDistanceToGun, MaxDistanceToGun/* +1 - postupnì se snižuje poèet možných místnosti a zaène tam padat vyjímka*/);
+            int grSelector = Random.Range(MinDistanceToGun, MaxDistanceToGun);
             GunRoom = layoutRoomObjects[grSelector];
             layoutRoomObjects.RemoveAt(grSelector);
 

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BossBullets : MonoBehaviour
@@ -31,9 +29,17 @@ public class BossBullets : MonoBehaviour
         if (other.tag == "Player")
         {
             PlayerHealthController.Instance.DamagePlayer();
+            if (PlayerHealthController.Instance.InvincCount <= 0)
+            {
+                Destroy(gameObject);
+                AudioManager.Instance.PlaySFX(4);
+            }
         }
-        Destroy(gameObject);
-        AudioManager.Instance.PlaySFX(4);
+        else
+        {
+            Destroy(gameObject);
+            AudioManager.Instance.PlaySFX(4);
+        }
     }
 
     private void OnBecameInvisible()

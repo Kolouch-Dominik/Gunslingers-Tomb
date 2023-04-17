@@ -296,6 +296,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
+      propertyPath: <PotentialCenters>k__BackingField.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3751573637258260388, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
+      propertyPath: <PotentialCenters>k__BackingField.Array.data[7]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3751573637258260389, guid: f2921524e1d711e41b17a3053ef81494, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -386,7 +394,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 862304561}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &862304564
 Camera:
   m_ObjectHideFlags: 0
@@ -567,7 +575,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993141473}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1993141476
 Camera:
   m_ObjectHideFlags: 0

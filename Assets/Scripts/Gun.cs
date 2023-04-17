@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -13,6 +11,7 @@ public class Gun : MonoBehaviour
 
     [field: SerializeField] public int ItemCost { get; set; }
     [field: SerializeField] public Sprite GunShopSprite { get; set; }
+    [field: SerializeField] public float DegreeAccuracy { get; set; }
 
 
     // Start is called before the first frame update
